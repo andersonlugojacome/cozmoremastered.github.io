@@ -1,3 +1,6 @@
+/* main.css */
+
+/* Global styles */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -40,17 +43,22 @@ footer#contact {
     text-align: center;
 }
 
+.center {
+    text-align: center;
+}
+
+/* Countdown timer styles */
 #countdown {
     font-size: 36px;
     font-weight: bold;
     text-align: center;
 }
 
-/* Hide the tab by default */
-.hidden {
-    display: none;
-}
-
-.center {
-    text-align: center;
+/* Responsive styles for smaller screens */
+@media only screen and (max-width: 600px) {
+    /* Adjust the font size and padding for smaller screens */
+    #countdown {
+        font-size: 24px;
+        padding: 10px;
+    }
 }
