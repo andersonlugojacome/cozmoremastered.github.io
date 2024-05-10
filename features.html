@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cozmo AI Features</title>
+    <!-- Link to the CSS file -->
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+<header>
+    <h1>Cozmo AI Features</h1>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li id="codeTab" class="hidden"><a href="code.html">Code</a></li> <!-- Hidden tab for code -->
+            <li id="installTab" class="hidden"><a href="install.html">How to Install</a></li> <!-- Hidden tab for installation -->
+        </ul>
+    </nav>
+</header>
+
+<section>
+    <h2>Features</h2>
+    <p>Explore the exciting features we're adding to Cozmo:</p>
+    <ul>
+        <li>Advanced Object Recognition</li>
+        <li>Natural Language Processing</li>
+        <li>Enhanced Mobility</li>
+        <li>Interactive Learning</li>
+        <li>And much more!</li>
+    </ul>
+</section>
+
+<footer id="contact">
+    <h3>Contact Us</h3>
+    <p>If you have any questions or suggestions, feel free to reach out to us via email:</p>
+    <p>Email: info@cozmoaiproject.com</p>
+</footer>
+
+<!-- JavaScript for Countdown Timer -->
+<script>
+    // Function to calculate remaining time until target date
+    function calculateTimeDifference(targetDate) {
+        var now = new Date();
+        return targetDate - now;
+    }
+
+    // Function to update the countdown
+    function updateCountdown() {
+        var targetDate;
+        var savedTargetDate = localStorage.getItem('cozmoTargetDate');
+        
+        if (savedTargetDate) {
+            targetDate = new Date(savedTargetDate);
+        } else {
+            targetDate = new Date();
+            targetDate.setDate(targetDate.getDate() + 21); // 3 weeks
+            targetDate.setMinutes(targetDate.getMinutes() + 17); // 17 minutes
+            targetDate.setDate(targetDate.getDate() + 1); // 1 day
+            localStorage.setItem('cozmoTargetDate', targetDate);
+        }
+
+        var timeDifference = calculateTimeDifference(targetDate);
+        
+        if (timeDifference <= 0) {
+            document.getElementById("codeTab").classList.remove("hidden"); // Show code tab
+            document.getElementById("installTab").classList.remove("hidden"); // Show install tab
+        }
+    }
+
+    // Update the countdown when the page loads
+    updateCountdown();
+</script>
+
+</body>
+</html>

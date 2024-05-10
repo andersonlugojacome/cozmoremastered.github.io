@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Cozmo AI</title>
+    <!-- Link to the CSS file -->
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+<header>
+    <h1>About Cozmo AI</h1>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="features.html">Features</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li id="codeTab" class="hidden"><a href="code.html">Code</a></li> <!-- Hidden tab for code -->
+            <li id="installTab" class="hidden"><a href="install.html">How to Install</a></li> <!-- Hidden tab for installation -->
+        </ul>
+    </nav>
+</header>
+
+<section>
+    <h2>About Cozmo AI</h2>
+    <p>Introducing the Cozmo AI Project, a community-driven initiative aimed at enhancing and expanding the capabilities of Anki Cozmo, the adorable AI-powered robot. Our mission is to make Cozmo smarter, more versatile, and more fun than ever before.</p>
+</section>
+
+<footer id="contact">
+    <h3>Contact Us</h3>
+    <p>If you have any questions or suggestions, feel free to reach out to us via email:</p>
+    <p>Email: info@cozmoaiproject.com</p>
+</footer>
+
+<!-- JavaScript for Countdown Timer -->
+<script>
+    // Function to calculate remaining time until target date
+    function calculateTimeDifference(targetDate) {
+        var now = new Date();
+        return targetDate - now;
+    }
+
+    // Function to update the countdown
+    function updateCountdown() {
+        var targetDate;
+        var savedTargetDate = localStorage.getItem('cozmoTargetDate');
+        
+        if (savedTargetDate) {
+            targetDate = new Date(savedTargetDate);
+        } else {
+            targetDate = new Date();
+            targetDate.setDate(targetDate.getDate() + 21); // 3 weeks
+            targetDate.setMinutes(targetDate.getMinutes() + 17); // 17 minutes
+            targetDate.setDate(targetDate.getDate() + 1); // 1 day
+            localStorage.setItem('cozmoTargetDate', targetDate);
+        }
+
+        var timeDifference = calculateTimeDifference(targetDate);
+        
+        var days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+        if (timeDifference > 0) {
+            document.getElementById("countdown").innerHTML = "Countdown: " + days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+        } else {
+            document.getElementById("countdown").style.display = "none"; // Hide countdown when finished
+            document.getElementById("codeTab").classList.remove("hidden"); // Show code tab
+            document.getElementById("installTab").classList.remove("hidden"); // Show install tab
+        }
+    }
+
+    // Update the countdown every second
+    setInterval(updateCountdown, 1000);
+</script>
+
+</body>
+</html>
