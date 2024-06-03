@@ -21,6 +21,11 @@
             </head>
             <body>
                 <table>
+                    <tr>
+                        <th>Name</th>
+                        <th>Cozmo ID</th>
+                        <th>Cozmo Version</th>
+                    </tr>
                     <xsl:for-each select="table/row">
                         <tr>
                             <xsl:for-each select="cell">
