@@ -1,12 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="style.xsl"?>
 <table>
     <row>
-        <cell>Header1</cell>
-        <cell>Header2</cell>
-        <cell>Header3</cell>
+        <cell>Name</cell>
+        <cell>Cozmo ID</cell>
+        <cell>Cozmo Version</cell>
     </row>
     <row>
         <cell>Data1</cell>
         <cell>Data2</cell>
         <cell>Data3</cell>
     </row>
-<row><cell>hello</cell><cell>hello</cell><cell>hello</cell></row></table>
+</table>
