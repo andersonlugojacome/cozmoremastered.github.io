@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="style.xsl"?>
 <table>
     <row>
         <cell>Name</cell>
@@ -11,5 +9,5 @@
         <cell>Data2</cell>
         <cell>Data3</cell>
     </row>
-    <!-- Add your new rows here -->
-</table>
+    
+<row><cell>s</cell><cell>s</cell><cell>ss</cell></row><row><cell>s</cell><cell>s</cell><cell>s</cell></row><row><cell>d</cell><cell>d</cell><cell>d</cell></row></table>
