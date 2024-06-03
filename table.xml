@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<table>
+    <row>
+        <cell>Header1</cell>
+        <cell>Header2</cell>
+        <cell>Header3</cell>
+    </row>
+    <row>
+        <cell>Data1</cell>
+        <cell>Data2</cell>
+        <cell>Data3</cell>
+    </row>
+</table>
