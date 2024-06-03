@@ -25,6 +25,7 @@
                         <th>Name</th>
                         <th>Cozmo ID</th>
                         <th>Cozmo Version</th>
+                        <th>Regestration Code</th>
                     </tr>
                     <xsl:for-each select="table/row">
                         <tr>
