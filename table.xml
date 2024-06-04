@@ -2,4 +2,4 @@
 <?xml-stylesheet type="text/xsl" href="style.xsl"?>
 <table>
     
-    <row><cell>s</cell><cell>s</cell><cell>s</cell><cell>s</cell></row></table>
+    <row><cell>s</cell><cell>s</cell><cell>s</cell><cell>s</cell></row><row><cell>Name</cell><cell>Cozmo ID</cell><cell>Cozmo Version</cell><cell>Registration Code</cell></row><row><cell>s</cell><cell>s</cell><cell>s</cell><cell>32ab</cell></row></table>
