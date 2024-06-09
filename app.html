@@ -60,6 +60,7 @@
             background-color: #f0f0f0;
             border: 1px solid #ccc;
             border-radius: 5px;
+            display: none; /* Initially hide the connection status */
         }
     </style>
 </head>
@@ -73,7 +74,7 @@
         <input type="submit" value="Connect">
     </form>
     
-    <div id="connectionStatus"></div>
+    <div id="connectionStatus">Connected!</div>
 
     <script>
         document.getElementById("wifiForm").addEventListener("submit", function(event) {
@@ -90,7 +91,7 @@
             // Here you would typically send this information to a backend server to handle the connection process
             
             // For demonstration purposes, let's just display the input values
-            document.getElementById("connectionStatus").innerHTML = "Connecting to WiFi network:<br>SSID: " + ssid + "<br>Password: " + password;
+            document.getElementById("connectionStatus").style.display = "block";
         });
     </script>
 </body>
