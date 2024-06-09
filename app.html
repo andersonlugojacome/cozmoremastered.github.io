@@ -3,33 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wi-Fi and Command Sender</title>
+    <title>WiFi Network Connection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            font-weight: bold;
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        #connectionStatus {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Connect to Wi-Fi and Send Commands</h1>
+    <h1>Connect to WiFi Network</h1>
     <form id="wifiForm">
-        <label for="ssid">SSID:</label>
+        <label for="ssid">WiFi SSID:</label><br>
         <input type="text" id="ssid" name="ssid" required><br>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required><br>
-        <label for="command">Command:</label>
-        <input type="text" id="command" name="command" required><br>
-        <button type="submit">Submit</button>
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password" required><br><br>
+        <input type="submit" value="Connect">
     </form>
+    
+    <div id="connectionStatus"></div>
 
     <script>
-        document.getElementById('wifiForm').addEventListener('submit', async function(event) {
+        document.getElementById("wifiForm").addEventListener("submit", function(event) {
             event.preventDefault();
-            const formData = new FormData(event.target);
-            const response = await fetch('/submit', {
-                method: 'POST',
-                body: JSON.stringify(Object.fromEntries(formData)),
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            });
-            const result = await response.json();
-            alert(result.message);
+            var ssid = document.getElementById("ssid").value;
+            var password = document.getElementById("password").value;
+
+            // Perform basic form validation
+            if(ssid.trim() === "" || password.trim() === "") {
+                alert("SSID and Password are required!");
+                return;
+            }
+            
+            // Here you would typically send this information to a backend server to handle the connection process
+            
+            // For demonstration purposes, let's just display the input values
+            document.getElementById("connectionStatus").innerHTML = "Connecting to WiFi network:<br>SSID: " + ssid + "<br>Password: " + password;
         });
     </script>
 </body>
