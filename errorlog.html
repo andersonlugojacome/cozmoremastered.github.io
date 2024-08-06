@@ -57,19 +57,45 @@
             text-align: center;
             color: #ffffff;
         }
-        .error-log {
+        .form-container {
             background-color: #1e1e1e;
             border-radius: 12px;
             padding: 20px;
             color: #ffffff;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
         }
-        .error-log pre {
-            background-color: #333333;
+        .form-container label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        .form-container input[type="text"],
+        .form-container input[type="email"],
+        .form-container input[type="file"],
+        .form-container button {
+            width: 100%;
             padding: 10px;
+            margin-bottom: 15px;
+            border: none;
             border-radius: 8px;
-            overflow-x: auto;
-            white-space: pre-wrap; /* Preserve whitespace formatting */
+        }
+        .form-container input[type="text"],
+        .form-container input[type="email"] {
+            background-color: #333333;
+            color: #ffffff;
+        }
+        .form-container input[type="file"] {
+            background-color: #444444;
+            color: #ffffff;
+        }
+        .form-container button {
+            background-color: #ff4081;
+            color: #ffffff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .form-container button:hover {
+            background-color: #e0356e;
         }
         footer {
             background-color: #1e1e1e;
@@ -105,14 +131,19 @@
     <div class="container">
         <section class="section">
             <h2>Upload Error Logs</h2>
-            <div class="error-log">
-                <pre>
-[ERROR] 2024-08-07 10:23:45 - Failed to upload file 'example.txt': Server error (500)
-[INFO] 2024-08-07 10:24:02 - Retry attempt for 'example.txt'
-[ERROR] 2024-08-07 10:24:15 - Failed to upload file 'example.txt': Connection timeout
-[WARN] 2024-08-07 10:25:30 - Upload retry limit reached for 'example.txt'
-[INFO] 2024-08-07 10:26:00 - User notified about upload failure
-                </pre>
+            <div class="form-container">
+                <form action="/upload" method="post" enctype="multipart/form-data">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                    
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    
+                    <label for="errorFile">Upload Error JSON File:</label>
+                    <input type="file" id="errorFile" name="errorFile" accept=".json" required>
+                    
+                    <button type="submit">Submit</button>
+                </form>
             </div>
         </section>
     </div>
