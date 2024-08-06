@@ -3,80 +3,149 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Cozmo Remastered</title>
-    <!-- Link to the CSS file -->
-    <link rel="stylesheet" href="main.css">
+    <title>Contact - Cozmo Remastered</title>
     <style>
-        /* CSS to hide the tabs initially */
-        .hidden {
-            display: none;
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            color: #e0e0e0;
+            background-color: #121212;
+            overflow-x: hidden;
+            min-height: 100vh;
+            position: relative;
+        }
+        header {
+            background-color: #1e1e1e;
+            padding: 20px;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            color: #ffffff;
+        }
+        nav {
+            margin-top: 10px;
+        }
+        nav a {
+            color: #e0e0e0;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: #ff4081;
+        }
+        .container {
+            padding: 120px 20px 60px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .section {
+            margin-top: 0; /* Remove margin to ensure it's at the top */
+            margin-bottom: 60px; /* Ensure space for footer */
+        }
+        .section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #ffffff;
+        }
+        .contact-form {
+            background-color: #1e1e1e;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+        .contact-form label {
+            display: block;
+            margin-bottom: 10px;
+            color: #ffffff;
+            font-weight: bold;
+        }
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: none;
+            background-color: #2e2e2e;
+            color: #ffffff;
+            font-size: 1em;
+        }
+        .contact-form input[type="submit"] {
+            background-color: #ff4081;
+            color: #ffffff;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .contact-form input[type="submit"]:hover {
+            background-color: #ff1c6e;
+        }
+        footer {
+            background-color: #1e1e1e;
+            color: #e0e0e0;
+            text-align: center;
+            padding: 20px;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
+            position: relative; /* Ensure footer scrolls with content */
+            width: 100%;
+            margin-top: 100px; /* Adjust this value as needed */
+        }
+        footer a {
+            color: #ff4081;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
+    <header>
+        <h1>Contact Cozmo Remastered</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="index.html#about">About</a>
+            <a href="index.html#info">Highlights</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
 
-<header>
-    <h1>Contact Cozmo Remastered</h1>
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="features.html">Features</a></li>
-            <li><a href="gallery.html">Gallery</a></li>
-            <li id="codeTab" class="hidden"><a href="code.html">Code</a></li> <!-- Hidden tab for code -->
-            <li id="installTab" class="hidden"><a href="install.html">How to Install</a></li> <!-- Hidden tab for installation -->
-        </ul>
-    </nav>
-</header>
+    <div class="container">
+        <section id="contact" class="section">
+            <h2>Contact Us</h2>
+            <div class="contact-form">
+                <form action="https://formsubmit.co/swest2236@gmail.com" method="POST">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_subject" value="New Contact Form Submission">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
 
-<section>
-    <h2>Contact Us</h2>
-    <p>If you have any questions or suggestions, feel free to reach out to us via email or our discord:</p>
-    <p>Email: swest2236@gmail.com</p>
-    <p><a href="https://discord.gg/Cm6DnbSH">Join our Discord</a></p>
-</section>
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
 
-<footer id="contact">
-    <h3>Contact Us</h3>
-    <p>If you have any questions or suggestions, feel free to reach out to us via email or our discord:</p>
-    <p>Email: swest2236@gmail.com</p>
-   
-</footer>
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="6" required></textarea>
 
-<!-- JavaScript for Countdown Timer -->
-<script>
-    // Function to calculate remaining time until target date
-    function calculateTimeDifference(targetDate) {
-        var now = new Date();
-        return targetDate - now;
-    }
+                    <input type="submit" value="Send Message">
+                </form>
+            </div>
+        </section>
+    </div>
 
-    // Function to update the countdown
-    function updateCountdown() {
-        var targetDate;
-        var savedTargetDate = localStorage.getItem('cozmoTargetDate');
-        
-        if (savedTargetDate) {
-            targetDate = new Date(savedTargetDate);
-        } else {
-            targetDate = new Date();
-            targetDate.setDate(targetDate.getDate() + 21); // 3 weeks
-            targetDate.setMinutes(targetDate.getMinutes() + 17); // 17 minutes
-            targetDate.setDate(targetDate.getDate() + 1); // 1 day
-            localStorage.setItem('cozmoTargetDate', targetDate);
-        }
-
-        var timeDifference = calculateTimeDifference(targetDate);
-        
-        if (timeDifference <= 0) {
-            document.getElementById("codeTab").classList.remove("hidden"); // Show code tab
-            document.getElementById("installTab").classList.remove("hidden"); // Show install tab
-        }
-    }
-
-    // Update the tab visibility when the page loads
-    updateCountdown();
-</script>
-
+    <footer>
+        <p>&copy; 2024 Cozmo Remastered. All rights reserved. | <a href="mailto:samuelor2309@gmail.com">Contact Us</a></p>
+    </footer>
 </body>
 </html>
