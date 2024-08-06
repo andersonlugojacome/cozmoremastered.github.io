@@ -130,17 +130,21 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Countdown Timer
-            let releaseDate = localStorage.getItem('releaseDate');
-            if (!releaseDate) {
-                releaseDate = new Date();
-                releaseDate.setDate(releaseDate.getDate() + 22); // Set to 22 days from now
-                localStorage.setItem('releaseDate', releaseDate);
-            } else {
-                releaseDate = new Date(releaseDate);
-            }
-
             const countdownElement = document.getElementById('countdown');
+
+            const getReleaseDate = () => {
+                let releaseDate = localStorage.getItem('releaseDate');
+                if (!releaseDate) {
+                    releaseDate = new Date();
+                    releaseDate.setDate(releaseDate.getDate() + 22); // Set to 22 days from now
+                    localStorage.setItem('releaseDate', releaseDate);
+                } else {
+                    releaseDate = new Date(releaseDate);
+                }
+                return releaseDate;
+            };
+
+            const releaseDate = getReleaseDate();
 
             const updateCountdown = () => {
                 const now = new Date().getTime();
