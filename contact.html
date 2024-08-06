@@ -13,7 +13,8 @@
             background-color: #121212;
             overflow-x: hidden;
             min-height: 100vh;
-            position: relative;
+            display: flex;
+            flex-direction: column;
         }
         header {
             background-color: #1e1e1e;
@@ -48,10 +49,11 @@
             padding: 120px 20px 60px;
             max-width: 800px;
             margin: 0 auto;
+            flex: 1;
         }
         .section {
-            margin-top: 0; /* Remove margin to ensure it's at the top */
-            margin-bottom: 60px; /* Ensure space for footer */
+            margin-top: 0;
+            margin-bottom: 60px;
         }
         .section h2 {
             font-size: 2.5em;
@@ -108,9 +110,8 @@
             text-align: center;
             padding: 20px;
             box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
-            position: relative; /* Ensure footer scrolls with content */
             width: 100%;
-            margin-top: 100px; /* Adjust this value as needed */
+            margin-top: auto;
         }
         footer a {
             color: #ff4081;
@@ -175,7 +176,9 @@
             }).then(response => {
                 if (response.ok) {
                     form.style.display = 'none';
-                    document.getElementById('confirmationMessage').style.display = 'block';
+                    const confirmationMessage = document.getElementById('confirmationMessage');
+                    confirmationMessage.style.display = 'block';
+                    confirmationMessage.scrollIntoView({ behavior: 'smooth' });
                 } else {
                     alert('There was a problem with the submission. Please try again.');
                 }
