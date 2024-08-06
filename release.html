@@ -103,7 +103,7 @@
         <h1>Cozmo Remastered</h1>
         <nav>
             <a href="/about">About</a>
-            <a href="/index/#info">Highlights</a>
+            <a href="/index#info">Highlights</a>
             <a href="/contact">Contact</a>
             <a href="/release">Release</a>
             <a href="/terms">Terms</a>
@@ -142,14 +142,6 @@
 
             const countdownElement = document.getElementById('countdown');
 
-            const getQuarter = (date) => {
-                const month = date.getMonth() + 1;
-                if (month <= 3) return 'Q1';
-                if (month <= 6) return 'Q2';
-                if (month <= 9) return 'Q3';
-                return 'Q4';
-            };
-
             const updateCountdown = () => {
                 const now = new Date().getTime();
                 const distance = releaseDate - now;
@@ -159,9 +151,7 @@
                 const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
                 const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-                const currentQuarter = getQuarter(new Date());
-
-                countdownElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s (${currentQuarter})`;
+                countdownElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s (Q1)`;
 
                 if (distance < 0) {
                     clearInterval(countdownInterval);
