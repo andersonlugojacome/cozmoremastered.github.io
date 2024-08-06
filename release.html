@@ -134,7 +134,7 @@
             let releaseDate = localStorage.getItem('releaseDate');
             if (!releaseDate) {
                 releaseDate = new Date();
-                releaseDate.setDate(releaseDate.getDate() + 17); // 2 weeks + 3 days
+                releaseDate.setDate(releaseDate.getDate() + 22); // 2 weeks + 3 days
                 localStorage.setItem('releaseDate', releaseDate);
             } else {
                 releaseDate = new Date(releaseDate);
