@@ -97,6 +97,14 @@
         .form-container button:hover {
             background-color: #e0356e;
         }
+        .confirmation-message {
+            display: none;
+            background-color: #333333;
+            color: #ffffff;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
         footer {
             background-color: #1e1e1e;
             color: #e0e0e0;
@@ -132,18 +140,24 @@
         <section class="section">
             <h2>Upload Error Logs</h2>
             <div class="form-container">
-                <form action="/upload" method="post" enctype="multipart/form-data">
-                    <label for="name">Name:</label>
+                <form id="uploadForm" action="https://formsubmit.co/01e2a890709edcd2a84b4cdcb54c1ca2" method="POST" enctype="multipart/form-data">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_subject" value="New Error Log Submission">
+
+                    <label for="name">Name</label>
                     <input type="text" id="name" name="name" required>
-                    
-                    <label for="email">Email:</label>
+
+                    <label for="email">Email</label>
                     <input type="email" id="email" name="email" required>
-                    
-                    <label for="errorFile">Upload Error JSON File:</label>
+
+                    <label for="errorFile">Upload Error JSON File</label>
                     <input type="file" id="errorFile" name="errorFile" accept=".json" required>
-                    
+
                     <button type="submit">Submit</button>
                 </form>
+                <div id="confirmationMessage" class="confirmation-message">
+                    Thank you for submitting the error logs! We will review them and get back to you if necessary.
+                </div>
             </div>
         </section>
     </div>
@@ -151,5 +165,31 @@
     <footer>
         <p>&copy; 2024 Cozmo Remastered. All rights reserved. | <a href="/contact">Contact Us</a></p> | <a href="https://discord.gg/dmCM8w44Ef" target="_blank">Discord</a>
     </footer>
+
+    <script>
+        document.getElementById('uploadForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const form = event.target;
+            const formData = new FormData(form);
+            fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    form.style.display = 'none';
+                    const confirmationMessage = document.getElementById('confirmationMessage');
+                    confirmationMessage.style.display = 'block';
+                    confirmationMessage.scrollIntoView({ behavior: 'smooth' });
+                } else {
+                    alert('There was a problem with the submission. Please try again.');
+                }
+            }).catch(error => {
+                alert('There was an error submitting the form. Please try again.');
+            });
+        });
+    </script>
 </body>
 </html>
