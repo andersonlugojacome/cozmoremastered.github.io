@@ -132,19 +132,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             const countdownElement = document.getElementById('countdown');
 
-            const getReleaseDate = () => {
-                let releaseDate = localStorage.getItem('releaseDate');
-                if (!releaseDate) {
-                    releaseDate = new Date();
-                    releaseDate.setDate(releaseDate.getDate() + 22); // Set to 22 days from now
-                    localStorage.setItem('releaseDate', releaseDate);
-                } else {
-                    releaseDate = new Date(releaseDate);
-                }
-                return releaseDate;
-            };
-
-            const releaseDate = getReleaseDate();
+            const releaseDate = new Date('2024-23-08T10:00:00Z'); // Set your fixed release date here
 
             const updateCountdown = () => {
                 const now = new Date().getTime();
