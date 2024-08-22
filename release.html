@@ -79,6 +79,28 @@
             color: #ff4081;
             margin-top: 10px;
         }
+        .download-section {
+            display: none;
+            text-align: center;
+            margin-top: 40px;
+        }
+        .download-section a {
+            color: #ffffff;
+            background-color: #ff4081;
+            padding: 15px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1.5em;
+            transition: background-color 0.3s ease;
+        }
+        .download-section a:hover {
+            background-color: #e0005a;
+        }
+        .instructions {
+            margin-top: 20px;
+            text-align: left;
+            font-size: 1.2em;
+        }
         footer {
             background-color: #1e1e1e;
             color: #e0e0e0;
@@ -121,6 +143,17 @@
                 <p><strong>Q3 2024:</strong> Public Release</p>
                 <p><strong>Q4 2024:</strong> Feature Updates and Enhancements</p>
             </div>
+            <div class="download-section" id="download-section">
+                <a href="/path/to/main.zip" download>Cozmo Remastered - Download Now</a>
+                <div class="instructions">
+                    <h3>Installation Instructions</h3>
+                    <p>1. Download the ZIP file by clicking the button above.</p>
+                    <p>2. Extract the contents of the ZIP file to a directory of your choice.</p>
+                    <p>3. Run the setup file (setup.exe) to install the application.</p>
+                    <p>4. Follow the on-screen instructions to complete the installation.</p>
+                    <p>5. Once installed, you can launch Cozmo Remastered from your Start menu or desktop shortcut.</p>
+                </div>
+            </div>
         </section>
     </div>
 
@@ -131,9 +164,10 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const countdownElement = document.getElementById('countdown');
+            const downloadSection = document.getElementById('download-section');
 
             // Set the release date to 23rd August 2024 at 3:00 PM New Zealand time (UTC+12)
-            const releaseDate = new Date('2024-08-23T10:00:00+12:00');
+            const releaseDate = new Date('2024-08-23T7:00:00+12:00');
 
             const updateCountdown = () => {
                 const now = new Date().getTime();
@@ -144,11 +178,12 @@
                 const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
                 const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-                countdownElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s (Q!)`;
-
-                if (distance < 0) {
+                if (distance > 0) {
+                    countdownElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+                } else {
                     clearInterval(countdownInterval);
                     countdownElement.innerHTML = "Released!";
+                    downloadSection.style.display = 'block';
                 }
             };
 
