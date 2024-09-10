@@ -14,12 +14,14 @@ window.addEventListener('offline', updateOnlineStatus);
 // Initial check
 updateOnlineStatus();
 
-// Your existing code
-$(".vec-env-select-btn").click(function () {
-  var selectedStack = $("#envOptions").val();
-  handleStackSelection(selectedStack);
-});
+// Your existing code to handle events
+$(document).ready(function () {
+  $(".vec-env-select-btn").click(function () {
+    var selectedStack = $("#envOptions").val();
+    handleStackSelection(selectedStack);
+  });
 
-$("#btnDiscoverVector").click(function () {
-  console.log("hbbi");
+  $("#btnDiscoverVector").click(function () {
+    console.log("hbbi");
+  });
 });
