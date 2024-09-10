@@ -1,8 +1,14 @@
-$(".vec-env-select-btn").click(function () {
-  var selectedStack = $("#envOptions").val();
-  handleStackSelection(selectedStack);
-});
+document.addEventListener("DOMContentLoaded", function() {
+  const confirmButton = document.querySelector(".vec-env-select-btn");
+  const containerEnvironment = document.getElementById("containerEnvironment");
+  const containerDiscover = document.getElementById("containerDiscover");
 
-$("#btnDiscoverVector").click(function () {
-  console.log("hi");
+  // Add event listener to the Confirm button
+  confirmButton.addEventListener("click", function() {
+    // Hide the current environment selection
+    containerEnvironment.style.display = "none";
+
+    // Show the next step instructions (connecting the bot)
+    containerDiscover.style.display = "block";
+  });
 });
