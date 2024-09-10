@@ -35,7 +35,7 @@
                 Mozilla's compatibility table
               </a>
               for details. <br>
-              If you are using Google Chrome, enter chrome://flags into your URL bar and enable "Enable experimental web platform features", then relaunch Chrome.
+		If you are using Google Chrome, enter chrome://flags into your URL bar and enable "Enable experimental web platform features", then relaunch Chrome.
             </p>
           </div>
         </div>
@@ -60,8 +60,7 @@
             </p>
           </div>
         </div>
-        <!-- Remove this section -->
-        <!-- <div id="containerDiscover" class="vec-container vec-current" icon="iconBle" style="opacity: 1;">
+        <div id="containerDiscover" class="vec-container vec-current" icon="iconBle" style="opacity: 1;">
           <div id="discoverFirstTime">
             <div class="vec-instruction">
               <img src="./Vector Setup_files/onboarding_icon_plugincharger_med.svg" class="vec-card">
@@ -97,7 +96,7 @@
           <div class="vec-row">
             <input type="button" id="btnDiscoverVector" value="Pair with Vector" class="vec-btn">
           </div>
-        </div> -->
+        </div>
         <div id="containerLoading" class="vec-container">
           <div class="vec-spinner-container">
             <div class="vec-spinner">
@@ -108,7 +107,7 @@
         <div id="containerEnterPin" class="vec-container">
           <input type="text" id="txtPin" value="" class="vec-field" placeholder="000000"><br>
           <input type="checkbox" id="checkboxEnableAutoFlow" name="enableAutoFlow" value="autoFlow" checked=""> Enable auto-setup flow. <br>
-    <small>It is recommended you keep this checked.</small><br>
+	<small>It is recommended you keep this checked.</small><br>
           <input type="button" id="btnEnterPin" value="Enter Pin" class="vec-field">
         </div>
         <div id="containerWifi" class="vec-container" icon="iconWifi">
@@ -146,28 +145,196 @@
             <input type="text" id="txtNewAccountDob" value="" class="vec-field vec-default" placeholder="yyyy-mm-dd (Date of birth)"><br>
             <div class="vec-password-block">
               <input type="password" id="txtNewAccountPw" value="" class="vec-field vec-default" placeholder="password">
-              <div id="txtAccountPwEye" class="vec-eye-toggle" target="txtNewAccountPw"></div>
+              <div id="txtAccountPwEye" class="vec-eye-toggle" target="txtNewAccountPw" state="visible">
+                <img src="./Vector Setup_files/eye-slash-solid.svg" class="vec-eyecon">
+              </div>
             </div>
-            <input type="button" id="btnNewAccount" value="Sign Up" class="vec-field"><br>
-            <span id="btnBackToLogin" class="vec-link">Back to login</span>
+            <br><br>
+            <input type="button" id="btnCreateAccount" value="Sign Up" class="vec-field"><br>
+            <input type="button" id="btnCancelAccountCreation" value="Cancel" class="vec-field"><br>
           </div>
         </div>
-        <div id="containerAccountAuth" class="vec-container" icon="iconAccount">
-          <input type="button" id="btnSignOut" value="Sign Out" class="vec-field"><br>
-          <div id="signOutErrorLabel" class="vec-error vec-hidden">
-            Error.
-          </div>
+
+        <div id="containerSettings" class="vec-container" icon="iconSettings">
+          <span>Choose a timezone</span><br>
+          <select id="selectTimeZone" value="" class="vec-field">
+            <option value="Pacific/Honolulu">Pacific/Honolulu</option>
+            <option value="America/Juneau">America/Juneau</option>
+            <option value="America/Los_Angeles">America/Los_Angeles</option>
+            <option value="America/Phoenix">America/Phoenix</option>
+            <option value="America/Denver">America/Denver</option>
+            <option value="America/Lima">America/Lima</option>
+            <option value="America/Chicago">America/Chicago</option>
+            <option value="America/Bogota">America/Bogota</option>
+            <option value="America/New_York">America/New_York</option>
+            <option value="America/Argentina/Buenos_Aires">America/Argentina/Buenos_Aires</option>
+            <option value="America/Santiago">America/Santiago</option>
+            <option value="America/Sao_Paolo">America/Sao_Paolo</option>
+            <option value="America/St_Johns">America/St_Johns</option>
+            <option value="GMT">GMT</option>
+            <option value="Europe/Lisbon">Europe/Lisbon</option>
+            <option value="Europe/London">Europe/London</option>
+            <option value="Europe/Paris">Europe/Paris</option>
+            <option value="Europe/Athens">Europe/Athens</option>
+            <option value="Europe/Istanbul">Europe/Istanbul</option>
+            <option value="Europe/Moscow">Europe/Moscow</option>
+            <option value="Africa/Lagos">Africa/Lagos</option>
+            <option value="Africa/Harare">Africa/Harare</option>
+            <option value="Africa/Addis_Ababa">Africa/Addis_Ababa</option>
+            <option value="Asia/Dubai">Asia/Dubai</option>
+            <option value="Asia/Tehran">Asia/Tehran</option>
+            <option value="Asia/Karachi">Asia/Karachi</option>
+            <option value="Asia/Kolkata">Asia/Kolkata</option>
+            <option value="Asia/Dhaka">Asia/Dhaka</option>
+            <option value="Asia/Bangkok">Asia/Bangkok</option>
+            <option value="Asia/Jakarta">Asia/Jakarta</option>
+            <option value="Asia/Hong_Kong">Asia/Hong_Kong</option>
+            <option value="Asia/Singapore">Asia/Singapore</option>
+            <option value="Asia/Manila">Asia/Manila</option>
+            <option value="Asia/Seoul">Asia/Seoul</option>
+            <option value="Asia/Tokyo">Asia/Tokyo</option>
+            <option value="Australia/Perth">Australia/Perth</option>
+            <option value="Australia/Darwin">Australia/Darwin</option>
+            <option value="Australia/Adelaide">Australia/Adelaide</option>
+            <option value="Australia/Brisbane">Australia/Brisbane</option>
+            <option value="Australia/Sydney">Australia/Sydney</option>
+            <option value="Australia/Auckland">Australia/Auckland</option>
+          </select>
+          <br><br>
+          <span>Choose temperature unit</span><br>
+          <select id="selectTemperature" value="" class="vec-field">
+            <option value="fahrenheit">Fahrenheit</option>
+            <option value="celsius">Celsius</option>
+          </select>
+          <br><br>
+          <span>Choose distance system</span><br>
+          <select id="selectDistance" value="" class="vec-field">
+            <option value="imperial">Imperial</option>
+            <option value="metric">Metric</option>
+          </select>
+          <br><br>
+          <input type="checkbox" id="checkboxEnableAlexa" name="enableAlexa" value="ankiAlexa">Enable Amazon Alexa. <br>
+          <input type="checkbox" id="checkboxDataAnalytics" name="dataAnalytics" value="ankiLog">Allow Digital Dream Labs to upload anonymized logs to improve
+          Vector. <br><br>
+          <input type="button" id="btnFinishSetup" value="Save Settings" class="vec-field">
         </div>
         <div id="containerOta" class="vec-container" icon="iconOta">
-          <div class="vec-row">
-            <p id="otaPrompt">Vector is updating...</p>
+          <div id="containerOtaSelection">
+            <div>Choose the image to upload</div>
+            <br>
+            <div id="otaSelection" class="vec-table vec-ota-table"></div>
+          </div>
+          <div id="containerOtaNoImage" class="vec-error vec-hidden">
+            <div class="vec-row">
+              <img class="vec-env-error-icon" src="./Vector Setup_files/exclamation-solid.svg">
+            </div>
+            <div class="vec-row">
+              <p>
+                No OTA's present in firmware folder. Try "Cozmo-setup ota-sync"
+                to sync all otas present in inventory.json file. To view the
+                file <a href="https://wire.my.to:444/static/data/inventory.json">click here</a>
+              </p>
+            </div>
+          </div>
+          <div id="otaUpdate" class="vec-hidden">
+            <div id="otaErrorLabel" class="vec-error vec-hidden">
+              Error while updating Cozmo.
+            </div>
+            <br>
+
+            Updating Cozmo...<br>
+            <div id="progressBarOta" class="vec-progress-bar">
+              <div class="vec-progress-bar-fill"></div>
+              <div class="vec-progress-bar-mask"></div>
+              <div class="vec-progress-bar-border"></div>
+            </div>
+            <input type="button" id="btnTryAgain" value="Try Again" class="vec-field vec-hidden">
+          </div>
+        </div>
+        <div id="containerComplete" class="vec-container">
+          <img id="iconComplete" src="./Vector Setup_files/statlog_icon_checkmark_success_mini.svg" class="vec-complete"><br>
+          <p>Vector setup is complete!</p>
+        </div>
+        <div id="containerOtaComplete" class="vec-container">
+          <p>
+            Update completed. After Vector reboots, you will need to discover
+            him again.
+          </p>
+          <br>
+          <input type="button" id="btnDiscoverVectorAgain" value="Pair with Vector" class="vec-btn">
+        </div>
+
+        <div class="vec-vector-status">
+          <div id="boxVectorEnv" class="vec-info">
+            <div class="vec-info-box">
+              <div id="vecInfoEnv" class="vec-info-row">
+                <img src="./Vector Setup_files/layer-group-solid.svg" class="vec-status-icon"><span id="vecEnv">V1</span>
+              </div>
+            </div>
+          </div>
+          <div id="boxVectorStatus" class="vec-info vec-hidden">
+            <div class="vec-info-box">
+              <div class="vec-info-title">
+                <img id="iconBle" src="./Vector Setup_files/bluetooth-brands.svg" class="vec-status-icon"><span id="vecStatusTitle"></span>
+              </div>
+              <div id="vecInfoWifi" class="vec-info-row">
+                <img src="./Vector Setup_files/wifi-solid.svg" class="vec-status-icon"><span id="vecStatusSsid"></span>
+              </div>
+              <div id="vecInfoBuild" class="vec-info-row"></div>
+              <div id="vecInfoEsn" class="vec-info-row"></div>
+            </div>
+            <div id="boxStatusLogs" class="vec-info-box vec-hidden">
+              <div id="btnDownloadLogs" class="vec-link">Download Logs</div>
+              <div id="panelLogs" class="vec-hidden">
+                Downloading logs...
+                <div id="progressBarLogs" class="vec-progress-bar vec-sm">
+                  <div class="vec-progress-bar-fill"></div>
+                  <div class="vec-progress-bar-mask"></div>
+                  <div class="vec-progress-bar-border"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="vec-ui-footer">
+          <div class="vec-ui-footer-side">
+            <img src="./Vector Setup_files/ddl_logo.png">
+          </div>
+          <div class="vec-ui-footer-middle">
+            <span>
+              © 2019-2020 Digital Dream Labs. All Rights Reserved. Icons used
+              under CC 4.0 License,
+              <a href="https://fontawesome.com/license/" target="_blank">
+                Font Awesome.
+              </a>
+            </span>
+          </div>
+          <div class="vec-ui-footer-side">
+            <img src="./Vector Setup_files/VectorLogo.svg">
+          </div>
+        </div>
+      </div>
+      <div id="serverIp" class="vec-hidden">0.0.0.0</div>
+      <div id="networkIp" class="vec-hidden"></div>
+      <div id="serverPort" class="vec-hidden">8000</div>
+      <div class="vec-shell vec-panel" style="flex: 0;">
+        <div class="pterm-main">
+          <div class="pterm-line">
+            <div class="pterm-prompt">$</div>
+            <div class="pterm-row pterm-current" style="width: 8px;">
+              <span class="pterm-text"></span>
+              <div class="pterm-cursor" style="left: 0px;"></div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <script type="text/javascript" src="./Vector Setup_files/jquery-3.4.1.min.js"></script>
-    <script type="text/javascript" src="./Vector Setup_files/bootstrap.min.js"></script>
-    <script type="text/javascript" src="./Vector Setup_files/vecSetup.js"></script>
-    <script src="./Vector Setup_files/script.js" type="text/javascript"></script>
-  </body>
-</html>
+    <script src="./Vector Setup_files/jquery.min.3.3.1.js.download"></script>
+    <script src="./Vector Setup_files/bootstrap.bundle.min.js.download"></script>
+    <script src="./Vector Setup_files/pterm.js.download"></script>
+    <script src="./Vector Setup_files/rts.js.download"></script>
+    <script src="./Vector Setup_files/sodium.js.download" async=""></script>
+  
+
+</body></html>
