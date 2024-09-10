@@ -1,9 +1,6 @@
 $("#envOptions").html(btns);
+
 $(".vec-env-select-btn").click(function () {
-  var selectedStack = $("#envOptions").val();
+  var selectedStack = $("#envOptions").text(); // or .html()
   handleStackSelection(selectedStack);
-  });
-}
-$("#btnDiscoverVector").click(function () {
-  console.log("hi");
 });
