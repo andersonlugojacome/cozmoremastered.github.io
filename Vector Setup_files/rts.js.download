@@ -1,10 +1,8 @@
- $(".vec-env-select-btn").click(function () {
-    var selectedStack = $("#envOptions").val();
-    handleStackSelection(selectedStack);
-  });
-}
+$(".vec-env-select-btn").click(function () {
+  var selectedStack = $("#envOptions").val();
+  handleStackSelection(selectedStack);
+});
 
-  $("#btnDiscoverVector").click(function () {
-    console.log("hbbi");
-  });
+$("#btnDiscoverVector").click(function () {
+  console.log("hi");
 });
