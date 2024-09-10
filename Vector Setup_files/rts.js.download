@@ -4,5 +4,5 @@ $(".vec-env-select-btn").click(function () {
 });
 
 $("#btnDiscoverVector").click(function () {
-  console.log("hi");
+  console.log("hbi");
 });
