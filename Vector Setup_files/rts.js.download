@@ -1,10 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
     const containers = document.querySelectorAll('.vec-container');
-    let currentIndex = 0;
+    let currentIndex = -1; // Start with -1 so that the first call to showNextContainer sets the correct index
 
     function showNextContainer() {
-        // Hide current container
-        containers[currentIndex].style.display = 'none';
+        // Hide current container if any
+        if (currentIndex !== -1) {
+            containers[currentIndex].style.display = 'none';
+        }
 
         // Move to next container
         currentIndex = (currentIndex + 1) % containers.length;
@@ -13,6 +15,14 @@ document.addEventListener('DOMContentLoaded', function() {
         containers[currentIndex].style.display = 'block';
     }
 
-    // Set an interval to switch containers every 3 seconds
+    // Find and display the container with instructions first
+    for (let i = 0; i < containers.length; i++) {
+        if (containers[i].id === 'containerEnvironment') {
+            currentIndex = i;
+            break;
+        }
+    }
+
+    containers[currentIndex].style.display = 'block'; // Display the instruction container
     setInterval(showNextContainer, 3000);
 });
