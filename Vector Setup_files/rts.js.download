@@ -1,17 +1,19 @@
 document.addEventListener("DOMContentLoaded", function() {
   // Select the confirm button
   const confirmButton = document.querySelector(".vec-env-select-btn");
-  
+
   // Select the containers for showing/hiding
   const containerEnvironment = document.getElementById("containerEnvironment");
   const containerDiscover = document.getElementById("containerDiscover");
 
   // Add event listener to the Confirm button
   confirmButton.addEventListener("click", function(event) {
-    event.preventDefault(); // Prevent the default button behavior (e.g., form submission)
+    event.preventDefault(); // Prevent default form submission or navigation
 
-    // Ensure that the containerEnvironment is hidden and containerDiscover is displayed
-    containerEnvironment.style.display = "none"; // Hide the environment selection
-    containerDiscover.style.display = "block"; // Show the next step (connecting the bot)
+    // Hide the environment selection container
+    containerEnvironment.style.display = "none";
+
+    // Show the instructions to place Cozmo on his charger
+    containerDiscover.style.display = "block";
   });
 });
