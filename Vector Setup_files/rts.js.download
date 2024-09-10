@@ -10,19 +10,9 @@ $(document).ready(function () {
     // Handle stack selection
     var selectedStack = $("#envOptions").val();
     handleStackSelection(selectedStack);
-
-    // Ensure offline check after handling stack selection
-    checkForOfflineStatus();
   });
 
   $("#btnDiscoverVector").click(function () {
     console.log("hbbi");
   });
 });
-
-// Function to check and log offline status
-function checkForOfflineStatus() {
-  if (!navigator.onLine) {
-    console.log("offline");
-  }
-}
