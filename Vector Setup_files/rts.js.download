@@ -1729,9 +1729,7 @@ $("#btnTryAgain").click(function () {
 });
 
 $("#btnDiscoverVector").click(function () {
-  setPhase("containerLoading");
-  vecBle.tryConnect(_filter);
-  _filter = null;
+ console.log("hi");
 });
 
 $("#btnEnterPin").click(function () {
