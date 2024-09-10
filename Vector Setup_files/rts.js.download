@@ -1,4 +1,0 @@
-document.querySelector('#btnDiscoverVector').addEventListener('click', function() {
-  // Instead of connecting to Vector, just log "Hello"
-  console.log('Hello');
-});
