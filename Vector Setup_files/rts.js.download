@@ -1,15 +1,3 @@
-document.addEventListener('DOMContentLoaded', (event) => {
-    // Select the button element
-    const pairButton = document.getElementById('btnDiscoverVector');
-
-    // Check if the button exists
-    if (pairButton) {
-        // Add event listener for button click
-        pairButton.addEventListener('click', () => {
-            console.log('Pair with Cozmo button pressed');
-            // You can add any other logic you need here
-        });
-    } else {
-        console.error('Button with ID "btnDiscoverVector" not found');
-    }
+document.getElementById('btnDiscoverVector').addEventListener('click', function() {
+    console.log('hello');
 });
