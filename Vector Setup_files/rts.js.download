@@ -7,7 +7,9 @@ document.addEventListener("DOMContentLoaded", function() {
   const containerDiscover = document.getElementById("containerDiscover");
 
   // Add event listener to the Confirm button
-  confirmButton.addEventListener("click", function() {
+  confirmButton.addEventListener("click", function(event) {
+    event.preventDefault(); // Prevent the default button behavior (e.g., form submission)
+
     // Ensure that the containerEnvironment is hidden and containerDiscover is displayed
     containerEnvironment.style.display = "none"; // Hide the environment selection
     containerDiscover.style.display = "block"; // Show the next step (connecting the bot)
