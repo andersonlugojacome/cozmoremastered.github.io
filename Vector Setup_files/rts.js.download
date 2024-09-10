@@ -1,6 +1,31 @@
-$("#envOptions").html(btns);
+function setupStacks(stacks) {
+  var btns = "";
 
-$(".vec-env-select-btn").click(function () {
-  var selectedStack = $("#envOptions").text(); // or .html()
+  if (stacks.length === 1) {
+    handleStackSelection(stacks[0]);
+    return;
+  }
+
+  stacks.map((stack) => (btns += generateStackRow(stack)));
+
+  $("#envOptions").html(btns);
+}
+
+// Handle button clicks using event delegation
+$(document).on('click', '.vec-env-select-btn', function () {
+  var selectedStack = $(this).val(); // Use 'this' to refer to the clicked button
   handleStackSelection(selectedStack);
 });
+
+function handleStackSelection(stackName) {
+  _stack = _settings.getStack(stackName);
+
+  configurePtrem();
+
+  $("#boxVectorEnv").removeClass("vec-hidden");
+  $("#vecEnv").html(stackName);
+
+  toggleIcon("iconEnv", true);
+
+  setPhase("containerDiscover");
+}
