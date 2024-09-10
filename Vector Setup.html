@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<html><!-- /* Copyright (c) 2019-2020 Digital Dream Labs. See LICENSE file --><!-- for details. --><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
     <title>Cozmo Setup</title>
     <link href="./Vector Setup_files/css" rel="stylesheet">
     <link href="./Vector Setup_files/css(1)" rel="stylesheet">
@@ -9,60 +9,332 @@
     <link rel="stylesheet" type="text/css" href="./Vector Setup_files/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="./Vector Setup_files/vecSetup.css">
     <link rel="icon" type="image/png" href="https://wire.my.to:444/static/images/ddl_logo_sm.png">
-</head>
-<body>
-    <div class="vec-panel-container">
-        <div class="vec-panel vec-panel-dud"></div>
-        <div class="vec-panel vec-panel-ui" style="flex: 1 0 50%;">
-            <!-- Other containers -->
-            <div id="containerDiscover" class="vec-container vec-current" icon="iconBle" style="opacity: 1;">
-                <div id="discoverFirstTime">
-                    <div class="vec-instruction">
-                        <img src="./Vector Setup_files/onboarding_icon_plugincharger_med.svg" class="vec-card">
-                        <div><span>1. Place Cozmo on his charger.</span></div>
-                    </div>
-                    <div class="vec-instruction">
-                        <img src="./Vector Setup_files/onboarding_icon_pressbackpack_med.svg" class="vec-card">
-                        <div>
-                            <span></span>
-                            2. Press Cozmo's backpack button until his password shows.
-                        </div>
-                    </div>
-                    <div class="vec-instruction">
-                        <img src="./Vector Setup_files/onboarding_icon_pressbackpack_med.svg" class="vec-card">
-                        <div>
-                            <span></span>
-                            3. Double-click his backpack button and click "Pair with Cozmo".
-                        </div>
-                    </div>
-                </div>
-                <div id="discoverReconnect" class="vec-hidden">
-                    <div class="vec-instruction">
-                        <img src="./Vector Setup_files/nav_icon_backpacklights_sml.svg" class="vec-card">
-                        <div>
-                            <span> Wait until Vector finishes restarting, then click
-                            "PAIR WITH VECTOR." If Vector doesn't connect automatically,
-                            try double-pressing Vector's button. </span>
-                        </div>
-                    </div>
-                </div>
-                <div class="vec-row">
-                    <!-- Placeholder for custom code -->
-                    <input type="button" id="btnDiscoverVector" value="Pair with Vector" class="vec-btn" onclick="pairWithVector()">
-                </div>
-            </div>
-            <!-- Other containers -->
-        </div>
-        <!-- Other content -->
-    </div>
-    <script>
-        // Remove or comment out the existing Google Bluetooth related code
+  </head>
 
-        // Placeholder for custom code
-        function pairWithVector() {
-            // Add your custom code here
-            alert("Custom pairing code will be added here.");
-        }
-    </script>
-</body>
-</html>
+  <body>
+    <div class="vec-panel-container">
+      <div class="vec-panel vec-panel-dud"></div>
+      <div class="vec-panel vec-panel-ui" style="flex: 1 0 50%;">
+        <div class="vec-status">
+          <img id="iconEnv" src="./Vector Setup_files/layer-group-solid.svg" class="vec-icon vec-icon-sm vec-icon-done">
+          <img id="iconBle" src="./Vector Setup_files/bluetooth-brands.svg" src2="/static/images/common_icon_bluetooth_med.svg" class="vec-icon vec-icon-sm vec-icon-active">
+          <img id="iconWifi" src="./Vector Setup_files/wifi-solid.svg" src2="/static/images/common_statusicon_wificonnect_med.svg" class="vec-icon vec-icon-ota">
+          <img id="iconOta" src="./Vector Setup_files/cloud-download-alt-solid.svg" src2="/static/images/common_icon_updatecloud_sml.svg" class="vec-icon vec-icon-ota">
+          <img id="iconAccount" src="./Vector Setup_files/user-circle-solid.svg" src2="/static/images/friends_icon_profileheadshot_sml.svg" class="vec-icon vec-icon-sm">
+          <img id="iconSettings" src="./Vector Setup_files/sliders-h-solid.svg" src2="/static/images/icon_settings.svg" class="vec-icon vec-icon-sm">
+        </div>
+        <div id="containerIncompatible" class="vec-container" style="opacity: 0;">
+          <div class="vec-row">
+            <img src="./Vector Setup_files/chrome.png" class="chrome-img">
+          </div>
+          <div class="vec-row">
+            <p>
+              Cozmo Web Setup uses Web Bluetooth which requires Google Chrome.
+              See
+              <a href="https://developer.mozilla.org/en-US/docs/Web/API/Bluetooth#Browser_compatibility">
+                Mozilla's compatibility table
+              </a>
+              for details. <br>
+		If you are using Google Chrome, enter chrome://flags into your URL bar and enable "Enable experimental web platform features", then relaunch Chrome.
+            </p>
+          </div>
+        </div>
+        <div id="containerEnvironment" class="container-fluid vec-container" icon="iconEnv" style="opacity: 0;">
+          <div class="row">
+            <div class="col-md-4 offset-md-4" align="center">
+              <p class="h5">What type of bot do you have? (most bots are V2)</p>
+              <br>
+              <select id="Options" value="" class="vec-field"><option value="prod">V1</option><option value="escapepod">V2</option></select>
+              <br><br>
+              <button class="vec-btn vec-env-select-btn">Confirm</button>
+            </div>
+          </div>
+        </div>
+        <div id="containerEnvironmentError" class="vec-container">
+          <div class="vec-row">
+            <img class="vec-env-error-icon" src="./Vector Setup_files/exclamation-solid.svg">
+          </div>
+          <div class="vec-row">
+            <p>
+              There was an error loading the settings.json file.</a>
+            </p>
+          </div>
+        </div>
+        <div id="containerDiscover" class="vec-container vec-current" icon="iconBle" style="opacity: 1;">
+          <div id="discoverFirstTime">
+            <div class="vec-instruction">
+              <img src="./Vector Setup_files/onboarding_icon_plugincharger_med.svg" class="vec-card">
+              <div><span>1. Place Cozmo on his charger.</span></div>
+            </div>
+            <div class="vec-instruction">
+              <img src="./Vector Setup_files/onboarding_icon_pressbackpack_med.svg" class="vec-card">
+              <div>
+                <span></span>
+                  2. Press cozmos backpack button until his password shows.
+                
+              </div>
+            </div>
+            <div class="vec-instruction">
+              <img src="./Vector Setup_files/onboarding_icon_pressbackpack_med.svg" class="vec-card">
+              <div>
+                <span></span>
+                  3. Doubble click his backpack button and click "PAIR WITH COZMO".
+                
+              </div>
+            </div>
+          </div>
+          <div id="discoverReconnect" class="vec-hidden">
+            <div class="vec-instruction">
+              <img src="./Vector Setup_files/nav_icon_backpacklights_sml.svg" class="vec-card">
+              <div>
+                <span> Wait until Vector finishes restarting, then click "PAIR WITH
+                  VECTOR." If Vector doesn't connect automatically, try
+                  double-pressing Vector's button. </span>
+              </div>
+            </div>
+          </div>
+          <div class="vec-row">
+            <input type="button" id="btnDiscoverVector" value="Pair with Vector" class="vec-btn">
+          </div>
+        </div>
+        <div id="containerLoading" class="vec-container">
+          <div class="vec-spinner-container">
+            <div class="vec-spinner">
+              <div class="vec-spinner-inner"></div>
+            </div>
+          </div>
+        </div>
+        <div id="containerEnterPin" class="vec-container">
+          <input type="text" id="txtPin" value="" class="vec-field" placeholder="000000"><br>
+          <input type="checkbox" id="checkboxEnableAutoFlow" name="enableAutoFlow" value="autoFlow" checked=""> Enable auto-setup flow. <br>
+	<small>It is recommended you keep this checked.</small><br>
+          <input type="button" id="btnEnterPin" value="Enter Pin" class="vec-field">
+        </div>
+        <div id="containerWifi" class="vec-container" icon="iconWifi">
+          <div id="wifiConnectErrorLabel" class="vec-error vec-hidden">
+            Error trying to connect Vector to wifi.
+          </div>
+          <br>
+          <div id="wifiScanTable" class="vec-table"></div>
+          <br><br>
+          <div class="vec-format">
+            <span id="btnCustomWifi" class="vec-link"> 
+              Don't see your network? Click to join custom. 
+            </span>
+          </div>
+        </div>
+        <div id="containerWifiConfig" class="vec-container">
+          <input type="text" id="txtWifiSsid" value="" class="vec-field vec-default" placeholder="ssid"><br>
+          <input type="password" id="txtWifiPw" value="" class="vec-field vec-default" placeholder="password"><br>
+          <input type="button" id="btnConnectWifi" value="Connect Vector to WiFi" class="vec-field">
+        </div>
+        <div id="containerAccount" class="vec-container" icon="iconAccount" align="center">
+          <div id="accountAuth">
+            <div id="accountErrorLabel" class="vec-error vec-hidden">
+              Error.
+            </div>
+            <input type="button" id="btnConnectCloud" value="Sign In" class="vec-field"><br>
+          </div>
+          <div id="newAccount" class="vec-container">
+            Create a new account <br><br>
+            <div id="accountCreationErrorLabel" class="vec-error vec-hidden">
+              Error.
+            </div>
+
+            <input type="email" id="txtNewAccountEmail" value="" class="vec-field vec-default" placeholder="email" required="required"><br>
+            <input type="text" id="txtNewAccountDob" value="" class="vec-field vec-default" placeholder="yyyy-mm-dd (Date of birth)"><br>
+            <div class="vec-password-block">
+              <input type="password" id="txtNewAccountPw" value="" class="vec-field vec-default" placeholder="password">
+              <div id="txtAccountPwEye" class="vec-eye-toggle" target="txtNewAccountPw" state="visible">
+                <img src="./Vector Setup_files/eye-slash-solid.svg" class="vec-eyecon">
+              </div>
+            </div>
+            <br><br>
+            <input type="button" id="btnCreateAccount" value="Sign Up" class="vec-field"><br>
+            <input type="button" id="btnCancelAccountCreation" value="Cancel" class="vec-field"><br>
+          </div>
+        </div>
+
+        <div id="containerSettings" class="vec-container" icon="iconSettings">
+          <span>Choose a timezone</span><br>
+          <select id="selectTimeZone" value="" class="vec-field">
+            <option value="Pacific/Honolulu">Pacific/Honolulu</option>
+            <option value="America/Juneau">America/Juneau</option>
+            <option value="America/Los_Angeles">America/Los_Angeles</option>
+            <option value="America/Phoenix">America/Phoenix</option>
+            <option value="America/Denver">America/Denver</option>
+            <option value="America/Lima">America/Lima</option>
+            <option value="America/Chicago">America/Chicago</option>
+            <option value="America/Bogota">America/Bogota</option>
+            <option value="America/New_York">America/New_York</option>
+            <option value="America/Argentina/Buenos_Aires">America/Argentina/Buenos_Aires</option>
+            <option value="America/Santiago">America/Santiago</option>
+            <option value="America/Sao_Paolo">America/Sao_Paolo</option>
+            <option value="America/St_Johns">America/St_Johns</option>
+            <option value="GMT">GMT</option>
+            <option value="Europe/Lisbon">Europe/Lisbon</option>
+            <option value="Europe/London">Europe/London</option>
+            <option value="Europe/Paris">Europe/Paris</option>
+            <option value="Europe/Athens">Europe/Athens</option>
+            <option value="Europe/Istanbul">Europe/Istanbul</option>
+            <option value="Europe/Moscow">Europe/Moscow</option>
+            <option value="Africa/Lagos">Africa/Lagos</option>
+            <option value="Africa/Harare">Africa/Harare</option>
+            <option value="Africa/Addis_Ababa">Africa/Addis_Ababa</option>
+            <option value="Asia/Dubai">Asia/Dubai</option>
+            <option value="Asia/Tehran">Asia/Tehran</option>
+            <option value="Asia/Karachi">Asia/Karachi</option>
+            <option value="Asia/Kolkata">Asia/Kolkata</option>
+            <option value="Asia/Dhaka">Asia/Dhaka</option>
+            <option value="Asia/Bangkok">Asia/Bangkok</option>
+            <option value="Asia/Jakarta">Asia/Jakarta</option>
+            <option value="Asia/Hong_Kong">Asia/Hong_Kong</option>
+            <option value="Asia/Singapore">Asia/Singapore</option>
+            <option value="Asia/Manila">Asia/Manila</option>
+            <option value="Asia/Seoul">Asia/Seoul</option>
+            <option value="Asia/Tokyo">Asia/Tokyo</option>
+            <option value="Australia/Perth">Australia/Perth</option>
+            <option value="Australia/Darwin">Australia/Darwin</option>
+            <option value="Australia/Adelaide">Australia/Adelaide</option>
+            <option value="Australia/Brisbane">Australia/Brisbane</option>
+            <option value="Australia/Sydney">Australia/Sydney</option>
+            <option value="Australia/Auckland">Australia/Auckland</option>
+          </select>
+          <br><br>
+          <span>Choose temperature unit</span><br>
+          <select id="selectTemperature" value="" class="vec-field">
+            <option value="fahrenheit">Fahrenheit</option>
+            <option value="celsius">Celsius</option>
+          </select>
+          <br><br>
+          <span>Choose distance system</span><br>
+          <select id="selectDistance" value="" class="vec-field">
+            <option value="imperial">Imperial</option>
+            <option value="metric">Metric</option>
+          </select>
+          <br><br>
+          <input type="checkbox" id="checkboxEnableAlexa" name="enableAlexa" value="ankiAlexa">Enable Amazon Alexa. <br>
+          <input type="checkbox" id="checkboxDataAnalytics" name="dataAnalytics" value="ankiLog">Allow Digital Dream Labs to upload anonymized logs to improve
+          Vector. <br><br>
+          <input type="button" id="btnFinishSetup" value="Save Settings" class="vec-field">
+        </div>
+        <div id="containerOta" class="vec-container" icon="iconOta">
+          <div id="containerOtaSelection">
+            <div>Choose the image to upload</div>
+            <br>
+            <div id="otaSelection" class="vec-table vec-ota-table"></div>
+          </div>
+          <div id="containerOtaNoImage" class="vec-error vec-hidden">
+            <div class="vec-row">
+              <img class="vec-env-error-icon" src="./Vector Setup_files/exclamation-solid.svg">
+            </div>
+            <div class="vec-row">
+              <p>
+                No OTA's present in firmware folder. Try "Cozmo-setup ota-sync"
+                to sync all otas present in inventory.json file. To view the
+                file <a href="https://wire.my.to:444/static/data/inventory.json">click here</a>
+              </p>
+            </div>
+          </div>
+          <div id="otaUpdate" class="vec-hidden">
+            <div id="otaErrorLabel" class="vec-error vec-hidden">
+              Error while updating Cozmo.
+            </div>
+            <br>
+
+            Updating Cozmo...<br>
+            <div id="progressBarOta" class="vec-progress-bar">
+              <div class="vec-progress-bar-fill"></div>
+              <div class="vec-progress-bar-mask"></div>
+              <div class="vec-progress-bar-border"></div>
+            </div>
+            <input type="button" id="btnTryAgain" value="Try Again" class="vec-field vec-hidden">
+          </div>
+        </div>
+        <div id="containerComplete" class="vec-container">
+          <img id="iconComplete" src="./Vector Setup_files/statlog_icon_checkmark_success_mini.svg" class="vec-complete"><br>
+          <p>Vector setup is complete!</p>
+        </div>
+        <div id="containerOtaComplete" class="vec-container">
+          <p>
+            Update completed. After Vector reboots, you will need to discover
+            him again.
+          </p>
+          <br>
+          <input type="button" id="btnDiscoverVectorAgain" value="Pair with Vector" class="vec-btn">
+        </div>
+
+        <div class="vec-vector-status">
+          <div id="boxVectorEnv" class="vec-info">
+            <div class="vec-info-box">
+              <div id="vecInfoEnv" class="vec-info-row">
+                <img src="./Vector Setup_files/layer-group-solid.svg" class="vec-status-icon"><span id="vecEnv">V1</span>
+              </div>
+            </div>
+          </div>
+          <div id="boxVectorStatus" class="vec-info vec-hidden">
+            <div class="vec-info-box">
+              <div class="vec-info-title">
+                <img id="iconBle" src="./Vector Setup_files/bluetooth-brands.svg" class="vec-status-icon"><span id="vecStatusTitle"></span>
+              </div>
+              <div id="vecInfoWifi" class="vec-info-row">
+                <img src="./Vector Setup_files/wifi-solid.svg" class="vec-status-icon"><span id="vecStatusSsid"></span>
+              </div>
+              <div id="vecInfoBuild" class="vec-info-row"></div>
+              <div id="vecInfoEsn" class="vec-info-row"></div>
+            </div>
+            <div id="boxStatusLogs" class="vec-info-box vec-hidden">
+              <div id="btnDownloadLogs" class="vec-link">Download Logs</div>
+              <div id="panelLogs" class="vec-hidden">
+                Downloading logs...
+                <div id="progressBarLogs" class="vec-progress-bar vec-sm">
+                  <div class="vec-progress-bar-fill"></div>
+                  <div class="vec-progress-bar-mask"></div>
+                  <div class="vec-progress-bar-border"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="vec-ui-footer">
+          <div class="vec-ui-footer-side">
+            <img src="./Vector Setup_files/ddl_logo.png">
+          </div>
+          <div class="vec-ui-footer-middle">
+            <span>
+              © 2019-2020 Digital Dream Labs. All Rights Reserved. Icons used
+              under CC 4.0 License,
+              <a href="https://fontawesome.com/license/" target="_blank">
+                Font Awesome.
+              </a>
+            </span>
+          </div>
+          <div class="vec-ui-footer-side">
+            <img src="./Vector Setup_files/VectorLogo.svg">
+          </div>
+        </div>
+      </div>
+      <div id="serverIp" class="vec-hidden">0.0.0.0</div>
+      <div id="networkIp" class="vec-hidden"></div>
+      <div id="serverPort" class="vec-hidden">8000</div>
+      <div class="vec-shell vec-panel" style="flex: 0;">
+        <div class="pterm-main">
+          <div class="pterm-line">
+            <div class="pterm-prompt">$</div>
+            <div class="pterm-row pterm-current" style="width: 8px;">
+              <span class="pterm-text"></span>
+              <div class="pterm-cursor" style="left: 0px;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./Vector Setup_files/jquery.min.3.3.1.js.download"></script>
+    <script src="./Vector Setup_files/bootstrap.bundle.min.js.download"></script>
+    <script src="./Vector Setup_files/pterm.js.download"></script>
+    <script src="./Vector Setup_files/rts.js.download"></script>
+    <script src="./Vector Setup_files/sodium.js.download" async=""></script>
+  
+
+</body></html>
