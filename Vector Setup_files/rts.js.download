@@ -1403,7 +1403,7 @@ $(document).ready(function () {
         } else {
           _filter = null;
         }
-        $("#btnDisverVector").click();
+        $("#btnDiscoverVector").click();
         _cmdPending = true;
         pterm_handled = false;
       } else if (args[0] == "ble-clear") {
@@ -1732,10 +1732,8 @@ $("#btnTryAgain").click(function () {
   doOta();
 });
 
-$("#btnDiscorVector").click(function () {
-  setPhase("containerLoading");
-  vecBle.tryConnect(_filter);
-  _filter = null;
+$("#btnDiscoverVector").click(function () {
+  console.log("hi");
 });
 
 $("#btnEnterPin").click(function () {
