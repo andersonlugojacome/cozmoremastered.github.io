@@ -330,45 +330,6 @@
         </div>
       </div>
     </div>
-	  <script>
-  // Function to hide all containers
-  function hideAllContainers() {
-    var containers = document.querySelectorAll('.vec-container');
-    containers.forEach(function(container) {
-      container.style.display = 'none'; // Hide all containers
-    });
-  }
-
-  // Function to show a specific container by its ID
-  function showContainer(containerId) {
-    hideAllContainers(); // First, hide all containers
-    document.getElementById(containerId).style.display = 'block'; // Show the specified container
-  }
-
-  // When the 'Confirm' button is clicked in the environment selection
-  document.querySelector('.vec-env-select-btn').addEventListener('click', function() {
-    var selectedEnv = document.getElementById('envptions').value;
-    if (selectedEnv === 'prod') {
-      showContainer('containerDiscover'); // Show the Discover container for V1
-    } else if (selectedEnv === 'escapepod') {
-      showContainer('containerDiscover'); // Show the Discover container for V2 (could be different)
-    }
-  });
-
-  // Example: When 'Pair with Cozmo' is clicked
-  document.getElementById('btnDiscoverVector').addEventListener('click', function() {
-    showContainer('containerLoading'); // Show loading container when pairing with Cozmo
-  });
-
-  // Add more event listeners for other actions
-  document.getElementById('btnEnterPin').addEventListener('click', function() {
-    showContainer('containerWifi'); // Show the Wifi container after PIN entry
-  });
-
-  // Initial state: show the environment selection container
-  showContainer('containerEnvironment');
-</script>
-
     <script src="./Vector Setup_files/jquery.min.3.3.1.js.download"></script>
     <script src="./Vector Setup_files/bootstrap.bundle.min.js.download"></script>
     <script src="./Vector Setup_files/pterm.js.download"></script>
