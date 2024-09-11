@@ -957,7 +957,7 @@ function handleStackSelection(stackName) {
 
   toggleIcon("iconEnv", true);
 
-  setPhase("containerEnvironmentError");
+  setPhase("containerDiscover");
 }
 
 function generateStackRow(name) {
@@ -1214,7 +1214,7 @@ function handleDisconnected() {
   clearInterval(_statusInterval);
   $("#boxVectorStatus").addClass("vec-hidden");
   toggleIcon("iconBle", false);
-  setPhase("containerEnvironmentError");
+  setPhase("containerDiscover");
 }
 
 function doOta() {
@@ -1322,7 +1322,7 @@ $(document).ready(function () {
   vecBle.onReceive(handleRtsHandshake);
   vecBle.onDisconnected(handleDisconnected);
   vecBle.onCancelSelect(function () {
-    setPhase("containerEnvironmentError");
+    setPhase("containerDiscover");
 
     if (_cmdPending) {
       _cmdPending = false;
@@ -1673,7 +1673,7 @@ function HandleHandshake(version) {
     } else if (value.status == 3) {
       // handle OTA complete
       toggleIcon("iconOta", true);
-      setPhase("containerEnvironmentError");
+      setPhase("containerDiscover");
     } else {
       // todo: handle failure
     }
