@@ -946,6 +946,7 @@ function setupStacks(stacks) {
   $(".vec-env-select-btn").click(function () {
     var selectedStack = $("#envOptions").val();
     handleStackSelection(selectedStack);
+    console.log("loading pyoide') 
     let pyodide = await loadPyodide();
     console.log("Pyodide loaded!");
 
