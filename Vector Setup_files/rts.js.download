@@ -957,7 +957,7 @@
   
     toggleIcon("iconEnv", true);
   
-    setPhase("containerIncompatible");
+    setPhase("containerDiscover");
   }
   
   function generateStackRow(name) {
