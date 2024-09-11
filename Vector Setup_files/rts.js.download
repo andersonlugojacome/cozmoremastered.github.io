@@ -1391,12 +1391,7 @@ $(document).ready(function () {
           _filter = null;
         }
         $("#btnDiscoverVector").click();
-        _cmdPending = true;
-        pterm_handled = false;
-      } else if (args[0] == "ble-clear") {
-        _sessions.clearSessions();
-        _sessions.save();
-      }
+        setPhase("containerCozmoWifi");
     }
   });
 });
@@ -1720,9 +1715,7 @@ $("#btnTryAgain").click(function () {
 });
 
 $("#btnDiscoverVector").click(function () {
-  setPhase("containerLoading");
-  vecBle.tryConnect(_filter);
-  _filter = null;
+  setPhase("containerCozmoWifi");
 });
 
 $("#btnEnterPin").click(function () {
