@@ -1392,8 +1392,23 @@ $(document).ready(function () {
         }
         $("#btnDiscoverVector").click();
         console.log("Hello world!");
+        if ('connection' in navigator) {
+        const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+        const type = connection.effectiveType;
+
+        console.log('Connection type:', type);
+
+        // Function to update connection status
+        const updateConnectionStatus = () => {
+            console.log(`Effective connection type changed to ${connection.effectiveType}`);
+        };
+
+        connection.addEventListener('change', updateConnectionStatus);
+    } else {
+        console.log('Network Information API not supported by this browser.');
+    }
      }   
-  });
+  
 });
 
 let handleRtsHandshake = {};
@@ -1716,6 +1731,21 @@ $("#btnTryAgain").click(function () {
 
 $("#btnDiscoverVector").click(function () {
   console.log("Hello world!");
+  if ('connection' in navigator) {
+        const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+        const type = connection.effectiveType;
+
+        console.log('Connection type:', type);
+
+        // Function to update connection status
+        const updateConnectionStatus = () => {
+            console.log(`Effective connection type changed to ${connection.effectiveType}`);
+        };
+
+        connection.addEventListener('change', updateConnectionStatus);
+    } else {
+        console.log('Network Information API not supported by this browser.');
+    }
 
 });
 
