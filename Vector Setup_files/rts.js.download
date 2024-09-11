@@ -31,9 +31,7 @@
       if (buffer.length < 1) {
         return;
       }
-       window.onload = async function() {
-            pyodideReadyPromise = loadPyodide();
-        };
+       
       let headerByte = buffer[0];
       let sizeByte = BleMessageProtocol.getSize(headerByte);
       let multipartState = BleMessageProtocol.getMultipartBits(headerByte);
@@ -1730,7 +1728,7 @@
     <!-- setPhase("containerConnectCozmoWifi"); -->
     
     // Console log to indicate the button was clicked
-    console.log("Hello, world!");
+    console.log("Loading");
   
     // Load Pyodide and run Python code
     let pyodide = await loadPyodide();
