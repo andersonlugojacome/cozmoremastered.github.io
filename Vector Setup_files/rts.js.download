@@ -1274,7 +1274,20 @@ $(document).ready(function () {
     }
   });
 
-  
+  console.log(
+    " __      ________ _____ _______ ____  _____  \n" +
+      " \\ \\    / /  ____/ ____|__   __/ __ \\|  __ \\ \n" +
+      "  \\ \\  / /| |__ | |       | | | |  | | |__) |\n" +
+      "   \\ \\/ / |  __|| |       | | | |  | |  _  / \n" +
+      "    \\  /  | |___| |____   | | | |__| | | \\ \\ \n" +
+      "     \\/   |______\\_____|  |_|  \\____/|_|  \\_\\"
+  );
+
+  console.log(
+    "\nURL parameters:\n" +
+      "\t    wifiSsid = WIFI_SSID\n" +
+      "\twifiPassword = WIFI_PASSWORD\n\n"
+  );
 
   if (!navigator.bluetooth) {
     setPhase("containerIncompatible");
@@ -1391,11 +1404,15 @@ $(document).ready(function () {
           _filter = null;
         }
         $("#btnDiscoverVector").click();
-        console.log("Hello world!");
-        
-     }   
-  
-}
+        _cmdPending = true;
+        pterm_handled = false;
+      } else if (args[0] == "ble-clear") {
+        _sessions.clearSessions();
+        _sessions.save();
+      }
+    }
+  });
+});
 
 let handleRtsHandshake = {};
 handleRtsHandshake.receive = function (data) {
@@ -1716,9 +1733,9 @@ $("#btnTryAgain").click(function () {
 });
 
 $("#btnDiscoverVector").click(function () {
-  console.log("Hello world!");
-  
-
+  setPhase("containerLoading");
+  vecBle.tryConnect(_filter);
+  _filter = null;
 });
 
 $("#btnEnterPin").click(function () {
