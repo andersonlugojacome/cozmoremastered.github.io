@@ -1391,6 +1391,7 @@ $(document).ready(function () {
           _filter = null;
         }
         $("#btnDiscoverVector").click();
+        setPhase("containerConnectCozmoWifi");
        
       } else if (args[0] == "ble-clear") {
         _sessions.clearSessions();
@@ -1719,6 +1720,7 @@ $("#btnTryAgain").click(function () {
 });
 
 $("#btnDiscoverVector").click(function () {
+   setPhase("containerConnectCozmoWifi");
   
 });
 
