@@ -1402,7 +1402,9 @@ $(document).ready(function () {
     }
   });
 });
-
+ $("#btnConnectWifi").click();
+  setPhase("containerConnectCozmoWifi");
+  console.log("Hello, world!");
 let handleRtsHandshake = {};
 handleRtsHandshake.receive = function (data) {
   if (data[0] == 1 && data.length == 5) {
