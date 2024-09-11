@@ -957,7 +957,7 @@
   
     toggleIcon("iconEnv", true);
   
-    setPhase("containerEnterPin");
+    setPhase("containerIncompatible");
   }
   
   function generateStackRow(name) {
@@ -1214,7 +1214,7 @@
     clearInterval(_statusInterval);
     $("#boxVectorStatus").addClass("vec-hidden");
     toggleIcon("iconBle", false);
-    setPhase("containerEnterPin");
+    setPhase("containerIncompatible");
   }
   
   function doOta() {
@@ -1322,7 +1322,7 @@
     vecBle.onReceive(handleRtsHandshake);
     vecBle.onDisconnected(handleDisconnected);
     vecBle.onCancelSelect(function () {
-      setPhase("containerEnterPin");
+      setPhase("containerIncompatible");
   
       if (_cmdPending) {
         _cmdPending = false;
@@ -1594,7 +1594,7 @@
     _version = version;
   
     rtsHandler.onReadyForPin(function () {
-      setPhase("containerEnterPin");
+      setPhase("containerIncompatible");
   
       if (_cmdPending) {
         pterm_read("Enter pin:").then(function (args) {
@@ -1673,7 +1673,7 @@
       } else if (value.status == 3) {
         // handle OTA complete
         toggleIcon("iconOta", true);
-        setPhase("containerEnterPin");
+        setPhase("containerIncompatible");
       } else {
         // todo: handle failure
       }
