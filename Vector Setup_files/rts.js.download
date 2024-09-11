@@ -1409,7 +1409,7 @@ $(document).ready(function () {
     }
      }   
   
-});
+}
 
 let handleRtsHandshake = {};
 handleRtsHandshake.receive = function (data) {
