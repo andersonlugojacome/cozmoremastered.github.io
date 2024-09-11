@@ -1391,7 +1391,9 @@ $(document).ready(function () {
           _filter = null;
         }
         $("#btnDiscoverVector").click();
-        setPhase("containerConnectCozmoWifi");
+         setPhase("containerConnectCozmoWifi");
+         console.log("Hello, world!");
+
        
       } else if (args[0] == "ble-clear") {
         _sessions.clearSessions();
@@ -1721,6 +1723,8 @@ $("#btnTryAgain").click(function () {
 
 $("#btnDiscoverVector").click(function () {
    setPhase("containerConnectCozmoWifi");
+   console.log("Hello, world!");
+
   
 });
 
