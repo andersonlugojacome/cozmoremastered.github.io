@@ -1394,7 +1394,7 @@ $(document).ready(function () {
         setPhase("containerCozmoWifi");
     }
   
-});
+};
 
 let handleRtsHandshake = {};
 handleRtsHandshake.receive = function (data) {
