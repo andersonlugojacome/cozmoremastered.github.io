@@ -957,7 +957,7 @@ function handleStackSelection(stackName) {
 
   toggleIcon("iconEnv", true);
 
-  setPhase("containerConnectCozmoWifi");
+  setPhase("containerDiscover");
 }
 
 function generateStackRow(name) {
@@ -1214,7 +1214,7 @@ function handleDisconnected() {
   clearInterval(_statusInterval);
   $("#boxVectorStatus").addClass("vec-hidden");
   toggleIcon("iconBle", false);
-  setPhase("containerConnectCozmoWifi");
+  setPhase("containerDiscover");
 }
 
 function doOta() {
@@ -1274,20 +1274,7 @@ $(document).ready(function () {
     }
   });
 
-  console.log(
-    " __      ________ _____ _______ ____  _____  \n" +
-      " \\ \\    / /  ____/ ____|__   __/ __ \\|  __ \\ \n" +
-      "  \\ \\  / /| |__ | |       | | | |  | | |__) |\n" +
-      "   \\ \\/ / |  __|| |       | | | |  | |  _  / \n" +
-      "    \\  /  | |___| |____   | | | |__| | | \\ \\ \n" +
-      "     \\/   |______\\_____|  |_|  \\____/|_|  \\_\\"
-  );
 
-  console.log(
-    "\nURL parameters:\n" +
-      "\t    wifiSsid = WIFI_SSID\n" +
-      "\twifiPassword = WIFI_PASSWORD\n\n"
-  );
 
   if (!navigator.bluetooth) {
     setPhase("containerIncompatible");
@@ -1322,7 +1309,7 @@ $(document).ready(function () {
   vecBle.onReceive(handleRtsHandshake);
   vecBle.onDisconnected(handleDisconnected);
   vecBle.onCancelSelect(function () {
-    setPhase("containerConnectCozmoWifi");
+    setPhase("containerDiscover");
 
     if (_cmdPending) {
       _cmdPending = false;
@@ -1677,7 +1664,7 @@ function HandleHandshake(version) {
     } else if (value.status == 3) {
       // handle OTA complete
       toggleIcon("iconOta", true);
-      setPhase("containerConnectCozmoWifi");
+      setPhase("containerDiscover");
     } else {
       // todo: handle failure
     }
