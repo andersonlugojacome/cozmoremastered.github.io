@@ -1721,6 +1721,11 @@ $("#btnTryAgain").click(function () {
   doOta();
 });
 
+$("#btnConnectWif").click(function () {
+  setPhase("containerConnectCozmoWifi");
+  console.log("Hello, world!");
+});
+
 $("#btnDiscoverVector").click(function () {
    setPhase("containerConnectCozmoWifi");
    console.log("Hello, world!");
