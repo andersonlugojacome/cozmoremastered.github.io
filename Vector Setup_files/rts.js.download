@@ -957,7 +957,7 @@
   
     toggleIcon("iconEnv", true);
   
-    setPhase("containerDiscover");
+    setPhase("containerEnterPin");
   }
   
   function generateStackRow(name) {
@@ -1214,7 +1214,7 @@
     clearInterval(_statusInterval);
     $("#boxVectorStatus").addClass("vec-hidden");
     toggleIcon("iconBle", false);
-    setPhase("containerDiscover");
+    setPhase("containerEnterPin");
   }
   
   function doOta() {
@@ -1322,7 +1322,7 @@
     vecBle.onReceive(handleRtsHandshake);
     vecBle.onDisconnected(handleDisconnected);
     vecBle.onCancelSelect(function () {
-      setPhase("containerDiscover");
+      setPhase("containerEnterPin");
   
       if (_cmdPending) {
         _cmdPending = false;
@@ -1673,7 +1673,7 @@
       } else if (value.status == 3) {
         // handle OTA complete
         toggleIcon("iconOta", true);
-        setPhase("containerDiscover");
+        setPhase("containerEnterPin");
       } else {
         // todo: handle failure
       }
