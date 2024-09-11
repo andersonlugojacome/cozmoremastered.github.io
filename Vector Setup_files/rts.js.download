@@ -1393,7 +1393,7 @@ $(document).ready(function () {
         $("#btnDiscoverVector").click();
         setPhase("containerCozmoWifi");
     }
-  });
+  
 });
 
 let handleRtsHandshake = {};
