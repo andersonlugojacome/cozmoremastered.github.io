@@ -2,6 +2,7 @@
 /* Copyright (c) 2019-2020 Digital Dream Labs. See LICENSE file for details */
 
 
+
 class BleMessageProtocol {
   constructor(maxSize) {
     this.kMsgStart = 0b10;
@@ -945,6 +946,12 @@ function setupStacks(stacks) {
   $(".vec-env-select-btn").click(function () {
     var selectedStack = $("#envOptions").val();
     handleStackSelection(selectedStack);
+    let pyodide = await loadPyodide();
+    console.log("Pyodide loaded!");
+
+  // Load micropip for pip package installation
+   await pyodide.loadPackage('micropip');
+   console.log("Micropip loaded!");
   });
 }
 
@@ -1724,18 +1731,13 @@ $("#btnTryAgain").click(function () {
 
 $("#btnConnectWif").click(async function () {
   // Set the phase or state of the UI
-  setPhase("containerConnectCozmoWifi");
+  <!-- setPhase("containerConnectCozmoWifi"); -->
   
   // Console log to indicate the button was clicked
   console.log("Hello, world!");
 
   // Load Pyodide and run Python code
-  let pyodide = await loadPyodide();
-  console.log("Pyodide loaded!");
-
-  // Load micropip for pip package installation
-  await pyodide.loadPackage('micropip');
-  console.log("Micropip loaded!");
+ 
 
   // Install the 'requests' package or any other pip package
   await pyodide.runPythonAsync(`
