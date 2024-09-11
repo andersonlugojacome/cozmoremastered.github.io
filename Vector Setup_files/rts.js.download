@@ -1392,7 +1392,7 @@ $(document).ready(function () {
         }
         $("#btnDiscoverVector").click();
         console.log("Hello world!");
-       
+     }   
   });
 });
 
