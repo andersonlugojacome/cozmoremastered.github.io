@@ -1394,7 +1394,7 @@
             _filter = null;
           }
           $("#btnDiscoverVector").click();
-           setPhase("containerConnectCozmoWifi");
+           setPhase("containerLoading");
            console.log("Hello, world!");
   
          
