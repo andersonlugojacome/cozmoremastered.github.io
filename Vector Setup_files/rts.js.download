@@ -1395,7 +1395,7 @@
           }
           $("#btnDiscoverVector").click();
            setPhase("Loading-container");
-           console.log("Hello, world!");
+          
   
          
         } else if (args[0] == "ble-clear") {
