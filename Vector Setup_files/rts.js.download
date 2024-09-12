@@ -1394,7 +1394,7 @@
             _filter = null;
           }
           $("#btnDiscoverVector").click();
-           setPhase("containerConnectCozmoWifi");
+           setPhase("containerLoad");
            console.log("Hello, world!");
   
          
@@ -1767,7 +1767,7 @@
   
   
   $("#btnDiscoverVector").click(function () {
-     setPhase("containerConnectCozmoWifi");
+     setPhase("containerLoad");
      console.log("Hello, world!");
   
     
