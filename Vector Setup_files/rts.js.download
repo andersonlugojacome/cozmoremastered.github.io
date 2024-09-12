@@ -1394,7 +1394,7 @@
             _filter = null;
           }
           $("#btnDiscoverVector").click();
-           setPhase("containerLoading");
+           setPhase("Loading-container");
            console.log("Hello, world!");
   
          
@@ -1597,7 +1597,7 @@
           _enableAutoFlow = false;
           _cmdPending = false;
           rtsHandler.enterPin(args[0]);
-          setPhase("containerLoading");
+          setPhase("Loading-container");
         });
       }
     });
@@ -1758,8 +1758,8 @@
     let result = await pyodide.runPythonAsync(pythonCode);
   
     // Display the result in a div or log it in the console
-    document.getElementById('output').innerText = JSON.stringify(result, null, 2);
-    console.log(result);
+  //  document.getElementById('output').innerText = JSON.stringify(result, null, 2);
+   // console.log(result);
   });
   $("#btnConnectWif").click(async function () {
     
@@ -1767,7 +1767,7 @@
   
   
   $("#btnDiscoverVector").click(function () {
-     setPhase("containerLoading");
+     setPhase("Loading-container");
      console.log("Hello, world!");
   
     
@@ -1776,7 +1776,7 @@
   $("#btnEnterPin").click(function () {
     _enableAutoFlow = $("#checkboxEnableAutoFlow").is(":checked");
     rtsHandler.enterPin($("#txtPin").val());
-    setPhase("containerLoading");
+    setPhase("Loading-container");
   });
   
   $("#btnConnectWifi").click(function () {
@@ -1791,7 +1791,7 @@
       auth: auth,
     };
   
-    setPhase("containerLoading");
+    setPhase("Loading-container");
   
     connectToWifi(_wifiCredentials.ssid, _wifiCredentials.pw, auth);
   
@@ -1904,7 +1904,7 @@
     let cloudUsername = $("#txtAccountUsername").val();
     let cloudPassword = $("#txtAccountPw").val();
   
-    setPhase("containerLoading");
+    setPhase("Loading-container");
   
     $("#txtAccountPw").val("");
   
@@ -1959,7 +1959,7 @@
     let allowDataAnalytics = $("#checkboxDataAnalytics").is(":checked");
     let alexaOptIn = $("#checkboxEnableAlexa").is(":checked");
   
-    setPhase("containerLoading");
+    setPhase("Loading-container");
   
     rtsHandler
       .doSdk(
