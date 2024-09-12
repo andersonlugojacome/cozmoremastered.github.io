@@ -1394,7 +1394,7 @@
             _filter = null;
           }
           $("#btnDiscoverVector").click();
-           setPhase("containerEnvironment");
+           setPhase("containerLoading");
            console.log("Hello, world!");
   
          
@@ -1727,7 +1727,7 @@
   $("#btnDiscoverVector").click(async function () {
     // Set the phase or state of the UI
     
-    setPhase("containerEnvironment");
+    
     // Console log to indicate the button was clicked
     console.log("Loading");
     let pyodide = await loadPyodide();
@@ -1767,7 +1767,7 @@
   
   
   $("#btnDiscoverVector").click(function () {
-     setPhase("containerEnvironment");
+     setPhase("containerLoading");
      console.log("Hello, world!");
   
     
