@@ -1394,7 +1394,7 @@
             _filter = null;
           }
           $("#btnDiscoverVector").click();
-           setPhase("containerLoading");
+           setPhase("containerLoding");
            console.log("Hello, world!");
   
          
