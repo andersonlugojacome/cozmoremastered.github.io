@@ -1724,43 +1724,7 @@
     doOta();
   });
   
-  $("#btnDiscoverVector").click(async function () {
-    // Set the phase or state of the UI
-    
-    
-    // Console log to indicate the button was clicked
-    console.log("Loading");
-    let pyodide = await loadPyodide();
-    console.log("Loaded");
-   
-    // Load Pyodide and run Python code
-    
-  
-    // Load micropip for pip package installation
-    await pyodide.loadPackage('micropip');
-    console.log("Micropip loaded!");
-  
-    // Install the 'requests' package or any other pip package
-    await pyodide.runPythonAsync(`
-        import micropip
-        await micropip.install('requests')
-    `);
-    console.log("Requests package installed!");
-  
-    // Define and run your Python code
-    let pythonCode = `
-  import requests
-  response = requests.get('https://jsonplaceholder.typicode.com/todos/1')
-  response.json()
-    `;
-  
-    // Run the Python code and get the result
-    let result = await pyodide.runPythonAsync(pythonCode);
-  
-    // Display the result in a div or log it in the console
-  //  document.getElementById('output').innerText = JSON.stringify(result, null, 2);
-   // console.log(result);
-  });
+ 
   $("#btnConnectWif").click(async function () {
     
   });
