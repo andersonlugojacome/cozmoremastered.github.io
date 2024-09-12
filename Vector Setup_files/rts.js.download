@@ -947,7 +947,7 @@
       var selectedStack = $("#envOptions").val();
       handleStackSelection(selectedStack);
       console.log("Pyodide loading!");
-      let pyodide = await loadPyodide();
+      
       console.log("Pyodide loaded!");
     });
   }
@@ -1732,6 +1732,8 @@
     
     // Console log to indicate the button was clicked
     console.log("Loading");
+    let pyodide = await loadPyodide();
+    console.log("Loaded");
    
     // Load Pyodide and run Python code
     
