@@ -1767,7 +1767,7 @@
   
   
   $("#btnDiscoverVector").click(function () {
-     setPhase("containerLoading");
+     setPhase("containerLoding");
      console.log("Hello, world!");
   
     
