@@ -1743,15 +1743,15 @@
     // Install the 'requests' package or any other pip package
     await pyodide.runPythonAsync(`
         import micropip
-        await micropip.install('requests')
+        await micropip.install('ai-cozmo')
     `);
     console.log("Requests package installed!");
   
     // Define and run your Python code
     let pythonCode = `
-  import requests
-  response = requests.get('https://jsonplaceholder.typicode.com/todos/1')
-  response.json()
+  import cozmoai
+  print("hi")
+  
     `;
     setPhase("containerConnectCozmoWifi");
     // Run the Python code and get the result
