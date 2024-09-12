@@ -1727,7 +1727,7 @@
   $("#btnDiscoverVector").click(async function () {
     // Set the phase or state of the UI
     
-    
+    setPhase("containerLoding");
     // Console log to indicate the button was clicked
     console.log("Loading");
     let pyodide = await loadPyodide();
