@@ -1734,7 +1734,7 @@
     console.log("Loading");
    
     // Load Pyodide and run Python code
-    let pyodide = await loadPyodide();
+    
   
     // Load micropip for pip package installation
     await pyodide.loadPackage('micropip');
