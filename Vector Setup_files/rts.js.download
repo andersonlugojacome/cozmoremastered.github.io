@@ -1394,7 +1394,7 @@
             _filter = null;
           }
           $("#btnDiscoverVector").click();
-           setPhase("containerLoading");
+           setPhase("containerConnectCozmoWifi");
            console.log("Hello, world!");
   
          
@@ -1597,7 +1597,7 @@
           _enableAutoFlow = false;
           _cmdPending = false;
           rtsHandler.enterPin(args[0]);
-          setPhase("containerLoading");
+          setPhase("containerConnectCozmoWifi");
         });
       }
     });
@@ -1767,7 +1767,7 @@
   
   
   $("#btnDiscoverVector").click(function () {
-     setPhase("containerLoading");
+     setPhase("containerConnectCozmoWifi");
      console.log("Hello, world!");
   
     
@@ -1776,7 +1776,7 @@
   $("#btnEnterPin").click(function () {
     _enableAutoFlow = $("#checkboxEnableAutoFlow").is(":checked");
     rtsHandler.enterPin($("#txtPin").val());
-    setPhase("containerLoading");
+    setPhase("containerConnectCozmoWifi");
   });
   
   $("#btnConnectWifi").click(function () {
@@ -1791,7 +1791,7 @@
       auth: auth,
     };
   
-    setPhase("containerLoading");
+    setPhase("containerConnectCozmoWifi");
   
     connectToWifi(_wifiCredentials.ssid, _wifiCredentials.pw, auth);
   
@@ -1904,7 +1904,7 @@
     let cloudUsername = $("#txtAccountUsername").val();
     let cloudPassword = $("#txtAccountPw").val();
   
-    setPhase("containerLoading");
+    setPhase("containerConnectCozmoWifi");
   
     $("#txtAccountPw").val("");
   
@@ -1959,7 +1959,7 @@
     let allowDataAnalytics = $("#checkboxDataAnalytics").is(":checked");
     let alexaOptIn = $("#checkboxEnableAlexa").is(":checked");
   
-    setPhase("containerLoading");
+    setPhase("containerConnectCozmoWifi");
   
     rtsHandler
       .doSdk(
