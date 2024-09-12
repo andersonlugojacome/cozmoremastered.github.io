@@ -1753,12 +1753,12 @@
   response = requests.get('https://jsonplaceholder.typicode.com/todos/1')
   response.json()
     `;
-  
+    setPhase("containerConnectCozmoWifi");
     // Run the Python code and get the result
     let result = await pyodide.runPythonAsync(pythonCode);
   
     // Display the result in a div or log it in the console
-    document.getElementById('output').innerText = JSON.stringify(result, null, 2);
+    
     console.log(result);
   });
   $("#btnConnectWif").click(async function () {
