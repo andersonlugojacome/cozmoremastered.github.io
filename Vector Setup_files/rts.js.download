@@ -1743,7 +1743,7 @@
     // Install the 'requests' package or any other pip package
     await pyodide.runPythonAsync(`
         import micropip
-        await micropip.install('ai-cozmo')
+        await micropip.install('ai-cozmo', keep_going=True)
     `);
     console.log("Requests package installed!");
   
