@@ -1742,9 +1742,9 @@
   
     // Install the 'requests' package or any other pip package
     await pyodide.runPythonAsync(`
-        import micropip
-        await micropip.install('https://github.com/cozmoremastered/cozmoremastered.github.io/raw/main/ai_cozmo-0.8.0-py3-none-any.whl`);
-    console.log("Requests package installed!");
+       import micropip
+       await micropip.install('https://github.com/cozmoremastered/cozmoremastered.github.io/raw/main/ai_cozmo-0.8.0-py3-none-any.whl')
+   `);
   
     // Define and run your Python code
     let pythonCode = `
