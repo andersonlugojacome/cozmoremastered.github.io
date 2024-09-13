@@ -1759,6 +1759,21 @@
     // Display the result in a div or log it in the console
     
     console.log(result);
+    let statusCheckInterval;
+
+// Function to check if the user is online or offline
+function checkOnlineStatus() {
+    if (navigator.onLine) {
+        console.log("User is online.");
+    } else {
+        console.log("User is offline.");
+        clearInterval(statusCheckInterval); // Stop checking once offline
+    }
+}
+
+// Start checking every 5 seconds (5000 milliseconds)
+statusCheckInterval = setInterval(checkOnlineStatus, 5000);
+    
   });
   $("#btnConnectWif").click(async function () {
     
