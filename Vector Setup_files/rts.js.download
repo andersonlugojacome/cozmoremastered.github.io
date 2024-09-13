@@ -1395,7 +1395,7 @@
           }
           $("#btnDiscoverVector").click();
            setPhase("containerLoad");
-           console.log("Hello, world!");
+           
   
          
         } else if (args[0] == "ble-clear") {
@@ -1729,16 +1729,16 @@
     
     
     // Console log to indicate the button was clicked
-    console.log("Loading");
+    
     let pyodide = await loadPyodide();
-    console.log("Loaded");
+    
    
     // Load Pyodide and run Python code
     
   
     // Load micropip for pip package installation
     await pyodide.loadPackage('micropip');
-    console.log("Micropip loaded!");
+    
   
     // Install the 'requests' package or any other pip package
     await pyodide.runPythonAsync(`
@@ -1767,7 +1767,7 @@
   
   $("#btnDiscoverVector").click(function () {
      setPhase("containerLoad");
-     console.log("Hello, world!");
+     
   
     
   });
