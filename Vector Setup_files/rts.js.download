@@ -1761,13 +1761,25 @@
     console.log(result);
     let statusCheckInterval;
 
+// URL of a small endpoint to test connectivity
+const testUrl = 'https://cozmoremastered.github.io/'; // Replace with your own endpoint
+
 // Function to check if the user is online or offline
-function checkOnlineStatus() {
-    if (navigator.onLine) {
-        console.log("User is online.");
-    } else {
+async function checkOnlineStatus() {
+    try {
+        // Attempt to fetch a small endpoint
+        const response = await fetch(testUrl, { method: 'HEAD' });
+
+        // Check if the response is successful (status code 200)
+        if (response.ok) {
+            console.log("User is online.");
+        } else {
+            console.log("User is offline.");
+            clearInterval(statusCheckInterval); // Stop checking once offline
+        }
+    } catch (error) {
         console.log("User is offline.");
-        clearInterval(statusCheckInterval); // Stop checking once offline
+        clearInterval(statusCheckInterval); // Stop checking if there's an error
     }
 }
 
