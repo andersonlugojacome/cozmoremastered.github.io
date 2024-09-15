@@ -1777,10 +1777,17 @@ async function checkOnlineStatus() {
         } else {
             console.log("User is offline.");
             clearInterval(statusCheckInterval); // Stop checking once offline
+            await new Promise(resolve => setTimeout(resolve, 3000));
+
+            setPhase("containerUpload");
         }
     } catch (error) {
         console.log("User is offline.");
         clearInterval(statusCheckInterval); // Stop checking if there's an error
+        await new Promise(resolve => setTimeout(resolve, 3000));
+
+        setPhase("containerUpload");
+        
     }
 }
 
