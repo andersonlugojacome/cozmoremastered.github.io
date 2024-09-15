@@ -1779,7 +1779,7 @@ async function checkOnlineStatus() {
             console.log("User is offline.");
             clearInterval(statusCheckInterval); // Stop checking once offline
             await new Promise(resolve => setTimeout(resolve, 3000));
-            toggleIcon("iconBle", false);
+            toggleIcon("iconBle", true);
 
             setPhase("containerUpload");
         }
@@ -1787,7 +1787,7 @@ async function checkOnlineStatus() {
         console.log("User is offline.");
         clearInterval(statusCheckInterval); // Stop checking if there's an error
         await new Promise(resolve => setTimeout(resolve, 3000));
-        toggleIcon("iconBle", false);
+        toggleIcon("iconBle", true);
 
         setPhase("containerUpload");
         
