@@ -1773,8 +1773,8 @@ async function checkOnlineStatus() {
 
         // Check if the response is successful (status code 200)
         if (response.ok) {
-            console.log("User is online.");
-            toggleIcon("iconBle", true);
+            console.log("User is oline.");
+            toggleIcon("iconBle", false);
         } else {
             console.log("User is offline.");
             clearInterval(statusCheckInterval); // Stop checking once offline
