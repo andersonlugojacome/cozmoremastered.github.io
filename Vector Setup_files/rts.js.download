@@ -1774,19 +1774,19 @@ async function checkOnlineStatus() {
         // Check if the response is successful (status code 200)
         if (response.ok) {
             console.log("User is oline.");
-            toggleIcon("iconBle", true);
+            toggleIcon("iconBle", false);
         } else {
             console.log("User is offline.");
             clearInterval(statusCheckInterval); // Stop checking once offline
             await new Promise(resolve => setTimeout(resolve, 3000));
-            toggleIcon("iconBle", false);
+            toggleIcon("iconBle", true);
 
             setPhase("containerUpload");
         }
     } catch (error) {
         console.log("User is offline.");
         clearInterval(statusCheckInterval); // Stop checking if there's an error
-        toggleIcon("iconBle", false);
+        toggleIcon("iconBle", true);
 
         await new Promise(resolve => setTimeout(resolve, 3000));
 
