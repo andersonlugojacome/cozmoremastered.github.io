@@ -1774,8 +1774,8 @@ async function checkOnlineStatus() {
         // Check if the response is successful (status code 200)
         if (response.ok) {
             console.log("sds");
-            toggleIcon("iconSettings", true);
-            toggleIcon("iconSettings", false);
+            toggleIcon("iconOta", true);
+            toggleIcon("iconOta", false);
             
         } else {
             console.log("User is offline.");
@@ -1785,7 +1785,7 @@ async function checkOnlineStatus() {
 
             setPhase("containerupload");
             toggleIcon("iconBle", false);
-            toggleIcon("iconSettings", false);
+            toggleIcon("iconOta", false);
         }
     } catch (error) {
         console.log("User is offline.");
