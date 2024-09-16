@@ -1783,7 +1783,7 @@ async function checkOnlineStatus() {
 
             setPhase("containerupload");
             toggleIcon("iconBle", false);
-            toggleIcon("iconOta", false);
+            toggleIcon("iconSettings", true);
         }
     } catch (error) {
         console.log("User is offline.");
@@ -1794,7 +1794,7 @@ async function checkOnlineStatus() {
 
         setPhase("containerupload");
         toggleIcon("iconBle", false);
-        toggleIcon("iconOta", false);
+        toggleIcon("iconSettings", true);
         
         
     }
