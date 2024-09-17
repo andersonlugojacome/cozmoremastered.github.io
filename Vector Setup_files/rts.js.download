@@ -1217,6 +1217,7 @@
     clearInterval(_statusInterval);
     $("#boxVectorStatus").addClass("vec-hidden");
     toggleIcon("iconBle", false);
+    toggleIcon("iconOta", false);
     setPhase("containerDiscover");
   }
   
@@ -1773,9 +1774,8 @@ async function checkOnlineStatus() {
 
         // Check if the response is successful (status code 200)
         if (response.ok) {
-            console.log("sdds");
-            toggleIcon("iconOta", false);
-            toggleIcon("iconOta", false);
+            console.log("ssdds");
+            
             
         } else {
             console.log("User is offline.");
