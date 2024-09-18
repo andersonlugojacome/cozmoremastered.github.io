@@ -1775,7 +1775,7 @@ async function checkOnlineStatus() {
         // Check if the response is successful (status code 200)
         if (response.ok) {
             console.log("ssdgds");
-            toggleIcon("iconOta", true);
+            toggleIcon("iconOta", false);
             
             
         } else {
